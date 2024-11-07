@@ -125,14 +125,20 @@ function thanhtoanpage(option,product) {
 
     // Su kien khu nhan nut dat hang
     document.querySelector(".complete-checkout-btn").onclick = () => {
-        switch (option) {
-            case 1:
-                xulyDathang();
-                break;
-            case 2:
-                xulyDathang(product);
-                break;
-        }
+        document.getElementById('thanhtoan').style.display = 'block';
+        document.getElementById('cod').addEventListener('click', function(){
+            switch (option) {
+                case 1:
+                    xulyDathang();
+                    break;
+                case 2:
+                    xulyDathang(product);
+                    break;
+            }
+        });
+        document.getElementById('banking').addEventListener('click', function(){
+            console.log('helo');
+        });
     }
 }
 
