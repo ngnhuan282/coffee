@@ -2124,7 +2124,7 @@ button.thanh-toan.disabled {
   font-size: 14px;
   line-height: 140%;
   display: block;
-  color: var(--text-color);
+  color: var(--branch-color);
   font-weight: 600;
 }
 
@@ -2136,7 +2136,7 @@ button.thanh-toan.disabled {
 
 .food-total .name-food {
   font-size: 14px;
-  color: var(--text-color);
+  color: var(--branch-color);
   line-height: 140%;
   font-weight: 600;
 }
