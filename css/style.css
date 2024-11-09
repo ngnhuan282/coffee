@@ -2030,8 +2030,8 @@ button.thanh-toan.disabled {
 .type-order-btn:hover,
 .type-order-btn.active {
   border: 1px solid var(--orange);
-  background-color: var(--white);
-  color: var(--text-color);
+  background-color: none;
+  color: var(--branch-color);
 }
 
 .type-order-btn i {
