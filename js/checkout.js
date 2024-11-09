@@ -145,10 +145,10 @@ function thanhtoanpage(option,product) {
         e.preventDefault();
         let giaoTanNoi = document.querySelector("#giaotannoi");
         let tuDenLay = document.querySelector("#tudenlay");
-        const tenNguoiNhan = document.getElementById('tennguoinhan').value;
-        const diaChiNhan = document.getElementById('diachinhan').value;
-        const sdtNhan = document.getElementById('sdtnhan').value;
-        const radios = document.querySelectorAll('.radio');
+        let tenNguoiNhan = document.getElementById('tennguoinhan').value;
+        let diaChiNhan = document.getElementById('diachinhan').value;
+        let sdtNhan = document.getElementById('sdtnhan').value;
+        let radios = document.querySelectorAll('.radio');
         let isChecked = false;
         const error = document.getElementById('error');
         radios.forEach(radio => {
