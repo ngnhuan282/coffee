@@ -1,4 +1,21 @@
 // Doi sang dinh dang tien VND
+const topping = [{
+    title: "tran chau trang",
+    price: 10000,
+},
+{
+    title: "tran chau duong den",
+    price: 10000,
+},
+{
+    title: "caramel",
+    price: 10000,  
+},
+{
+    title: "dao mieng",
+    price: 10000,
+}];
+
 function vnd(price) {
     return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 }
@@ -48,14 +65,21 @@ function decreasingNumber(e) {
 
 //Xem chi tiet san pham
 function detailProduct(index) {
-    let modal = document.querySelector('.modal.product-detail');
-    let products = JSON.parse(localStorage.getItem('products'));
-    event.preventDefault();
-    let infoProduct = products.find(sp => {
-        return sp.id === index;
-    })
-    let modalHtml = `<div class="modal-header">
-    <img class="product-image" src="${infoProduct.img}" alt="">
+
+
+    // Đảm bảo lấy đúng modal
+let modal = document.querySelector('.modal.product-detail');
+
+// Lấy dữ liệu sản phẩm từ localStorage
+let products = JSON.parse(localStorage.getItem('products'));
+
+// Tìm sản phẩm dựa vào id
+let infoProduct = products.find(sp => sp.id === index);
+
+// Khởi tạo modalHtml với thông tin sản phẩm
+let modalHtml = `
+    <div class="modal-header">
+        <img class="product-image" src="${infoProduct.img}" alt="">
     </div>
     <div class="modal-body">
         <h2 class="product-title">${infoProduct.title}</h2>
@@ -70,24 +94,78 @@ function detailProduct(index) {
             </div>
         </div>
         <p class="product-description">${infoProduct.desc}</p>
-    </div>
-    <div class="notebox">
+        <div class="product-size">
+            <label for="size">Chọn size:</label>
+            <select name="size" id="size">
+                <option id="S" value="0">Nhỏ + ${vnd(0)}</option>
+                <option id="M" value="5000">Vừa + ${vnd(5000)}</option>
+                <option id="L" value="10000">Lớn + ${vnd(10000)}</option>
+            </select>
+            <br/>
+        </div>
+        <div class="product-topping">
+            <p>Chọn topping:</p>
+`;
+
+// Thêm topping vào modalHtml
+topping.forEach((item, index) => {
+    modalHtml += `
+        <input type="checkbox" id="${item.title}" value="${item.price}">
+        <label for="${item.title}">${item.title} + ${vnd(item.price)}</label><br/>
+    `;
+});
+
+modalHtml += `
+        </div>
+        <div class="notebox">
             <p class="notebox-title">Ghi chú</p>
             <textarea class="text-note" id="popup-detail-note" placeholder="Nhập thông tin cần lưu ý..."></textarea>
+        </div>
+        <div class="modal-footer">
+            <div class="price-total">
+                <span class="thanhtien">Thành tiền</span>
+                <span id="total-price">${vnd(infoProduct.price)}</span>
+            </div>
+            <div class="modal-footer-control">
+                <button class="button-dathangngay" data-product="${infoProduct.id}">Đặt hàng ngay</button>
+                <button class="button-dat" id="add-cart" onclick="animationCart()">
+                    <i class="fa-light fa-basket-shopping"></i>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="modal-footer">
-        <div class="price-total">
-            <span class="thanhtien">Thành tiền</span>
-            <span class="price">${vnd(infoProduct.price)}</span>
-        </div>
-        <div class="modal-footer-control">
-            <button class="button-dathangngay" data-product="${infoProduct.id}">Đặt hàng ngay</button>
-            <button class="button-dat" id="add-cart" onclick="animationCart()"><i class="fa-light fa-basket-shopping"></i></button>
-        </div>
-    </div>`;
-    document.querySelector('#product-detail-content').innerHTML = modalHtml;
+`;
+
+// Hiển thị modal
+document.querySelector("#product-detail-content").innerHTML = modalHtml;
+
     modal.classList.add('open');
     body.style.overflow = "hidden";
+
+    document.getElementById('size').addEventListener('change', function(){
+        let sizePrice = document.getElementById('size').value;
+        let totalPricee = parseInt(infoProduct.price) + parseInt(sizePrice);
+        document.getElementById("total-price").innerHTML = vnd(totalPricee);
+        document.querySelector('.product-topping').addEventListener("change", function(e) {
+            e.preventDefault();
+            const tranchautrang = document.getElementById('tran chau trang').value;
+            const tranchauduongden = document.getElementById('tran chau duong den').value;
+            const caramel = document.getElementById('caramel').value;
+            const daomieng = document.getElementById('dao mieng').value;
+            topping.forEach((item, index) => {
+                document.getElementById('tran chau trang').addEventListener("checked", function(e){
+                    e.preventDefault();
+                    totalPricee += item.price;
+                    console.log(totalPricee);
+                    document.getElementById("total-price").innerHTML = vnd(totalPricee);
+
+                })
+            })
+
+
+        });
+    });
+
     //Cap nhat gia tien khi tang so luong san pham
     let tgbtn = document.querySelectorAll('.is-form');
     let qty = document.querySelector('.product-control .input-qty');
