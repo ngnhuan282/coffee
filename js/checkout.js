@@ -143,6 +143,7 @@ function thanhtoanpage(option,product) {
     // Su kien khu nhan nut dat hang
     document.querySelector(".complete-checkout-btn").addEventListener('click', function(e){
         e.preventDefault();
+        let currentUser = JSON.parse(localStorage.getItem('currentuser'));
         let giaoTanNoi = document.querySelector("#giaotannoi");
         let tuDenLay = document.querySelector("#tudenlay");
         let tenNguoiNhan = document.getElementById('tennguoinhan').value;
@@ -219,7 +220,7 @@ async function checkPaid(totalPrice, option, product) {
             }
         }
         else
-            console.log("giao dịch ko thanh công");
+            console.log("Giao dịch không thành công");
     }
     catch{
         console.error("loiii");
@@ -298,6 +299,8 @@ function closecheckout() {
 
 // Thong tin cac don hang da mua - Xu ly khi nhan nut dat hang
 function xulyDathang(product) {
+    let currentUser = JSON.parse(localStorage.getItem('currentuser'));
+    document.getElementById('diachinhan').value = currentUser.address;
     let diachinhan = "";
     let hinhthucgiao = "";
     let thoigiangiao = "";
@@ -305,10 +308,10 @@ function xulyDathang(product) {
     let tudenlay = document.querySelector("#tudenlay");
     let giaongay = document.querySelector("#giaongay");
     let giaovaogio = document.querySelector("#deliverytime");
-    let currentUser = JSON.parse(localStorage.getItem('currentuser'));
     // Hinh thuc giao & Dia chi nhan hang
     if(giaotannoi.classList.contains("active")) {
         diachinhan = document.querySelector("#diachinhan").value;
+        diachinhan = innerText;
         hinhthucgiao = giaotannoi.innerText;
     }
     if(tudenlay.classList.contains("active")){
