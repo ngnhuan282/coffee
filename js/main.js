@@ -447,6 +447,7 @@ signupButton.addEventListener('click', () => {
     event.preventDefault();
     let fullNameUser = document.getElementById('fullname').value;
     let phoneUser = document.getElementById('phone').value;
+    let addressUser = document.getElementById('address').value;
     let passwordUser = document.getElementById('password').value;
     let passwordConfirmation = document.getElementById('password_confirmation').value;
     let checkSignup = document.getElementById('checkbox-signup').checked;
@@ -459,6 +460,10 @@ signupButton.addEventListener('click', () => {
         document.querySelector('.form-message-name').innerHTML = 'Vui lòng nhập họ và tên lớn hơn 3 kí tự';
     } else {
         document.querySelector('.form-message-name').innerHTML = '';
+    }
+    if(addressUser.length == 0) {
+        document.getElementById('address').value = '';
+        document.querySelector('.form-message-address').innerHTML = 'Vui lòng nhập địa chỉ';
     }
     if (phoneUser.length == 0) {
         document.querySelector('.form-message-phone').innerHTML = 'Vui lòng nhập vào số điện thoại';
@@ -496,7 +501,7 @@ signupButton.addEventListener('click', () => {
                 fullname: fullNameUser,
                 phone: phoneUser,
                 password: passwordUser,
-                address: '',
+                address: addressUser,
                 email: '',
                 status: 1,
                 join: new Date(),
