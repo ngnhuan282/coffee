@@ -453,7 +453,7 @@ body,input,button,textarea,pre {
     font-weight: 600;
     margin-bottom: 10px;
     font-size: 24px;
-    color: var(--dark-gray)
+    color: var(--dark-gray);
 }
 
 .content {
