@@ -3,9 +3,8 @@ let priceFinal = document.getElementById("checkout-cart-price-final");
 let MyBank = {
     BankID: "MB",
     AcountID: "0926213561",
-
-
 }
+let interval;
 // Trang thanh toan
 function thanhtoanpage(option,product) {
     // Xu ly ngay nhan hang
@@ -195,8 +194,8 @@ function thanhtoanpage(option,product) {
                     <p>Số tiền: ${vnd(totalPrice)} </p>`;
                     renderOrderContent.innerHTML = ordercontentHTML;
                     setTimeout(() => {
-                        setInterval(() => {
-                            checkPaid(totalPrice, option, product);
+                        interval = setInterval(() => {
+                            checkPaid(totalPrice, lastContent, option, product);
                         }, 3000);
                     }, 20000);
             });
@@ -204,13 +203,14 @@ function thanhtoanpage(option,product) {
     });
 } 
 
-async function checkPaid(totalPrice, option, product) {
+async function checkPaid(totalPrice, lastContent, option, product) {
     try {
 
         const reponse = await fetch("https://script.google.com/macros/s/AKfycby09GbKlnV30fo0OMUJnXx6T8I1sJgcG31CuZsNoXGmkTWAzU8H9T0HLduPluh_18yCBw/exec");
         const data = await reponse.json();
         const lastPaid = data.data[data.data.length - 1];
-        if(lastPaid["Giá trị"] >= totalPrice){
+        if(lastPaid["Giá trị"] >= totalPrice && lastPaid["Mô tả"].includes(lastContent)){
+            clearInterval(interval);
             console.log("giao dịch thành công");
             switch(option) {
                 case 1:
