@@ -8,6 +8,9 @@ let interval;
 // Trang thanh toan
 function thanhtoanpage(option,product) {
     // Xu ly ngay nhan hang
+    let currentUser = JSON.parse(localStorage.getItem('currentuser'));
+    console.log(currentUser);
+    document.getElementById('diachinhan').value = currentUser.address;
     let today = new Date();
     let ngaymai = new Date();
     let ngaykia = new Date();
@@ -142,7 +145,6 @@ function thanhtoanpage(option,product) {
     // Su kien khu nhan nut dat hang
     document.querySelector(".complete-checkout-btn").addEventListener('click', function(e){
         e.preventDefault();
-        let currentUser = JSON.parse(localStorage.getItem('currentuser'));
         let giaoTanNoi = document.querySelector("#giaotannoi");
         let tuDenLay = document.querySelector("#tudenlay");
         let tenNguoiNhan = document.getElementById('tennguoinhan').value;
@@ -211,7 +213,7 @@ async function checkPaid(totalPrice, lastContent, option, product) {
         const lastPaid = data.data[data.data.length - 1];
         if(lastPaid["Giá trị"] >= totalPrice && lastPaid["Mô tả"].includes(lastContent)){
             clearInterval(interval);
-            console.log("giao dịch thành công");
+            alert("Đã đặt hàng thành công !!!");
             switch(option) {
                 case 1:
                     xulyDathang();
