@@ -312,8 +312,7 @@ function xulyDathang(product) {
     let giaovaogio = document.querySelector("#deliverytime");
     // Hinh thuc giao & Dia chi nhan hang
     if(giaotannoi.classList.contains("active")) {
-        diachinhan = document.querySelector("#diachinhan").value;
-        diachinhan = innerText;
+        document.querySelector("#diachinhan").value;
         hinhthucgiao = giaotannoi.innerText;
     }
     if(tudenlay.classList.contains("active")){
