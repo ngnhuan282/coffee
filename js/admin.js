@@ -910,3 +910,30 @@ document.getElementById("logout-acc").addEventListener('click', (e) => {
     localStorage.removeItem("currentuser");
     window.location = "/";
 })
+
+/* Lọc đơn hàng theo quận */
+function filterAndSortOrders() {
+    let orders = localStorage.getItem("order") ? JSON.parse(localStorage.getItem("order")) : [];
+
+    // Lọc theo trạng thái
+    const statusFilter = document.getElementById("filter-status").value;
+    if (statusFilter !== "all") {
+        orders = orders.filter(order => order.trangthai == statusFilter);
+    }
+
+    // Sắp xếp theo quận
+    const sortByDistrictButton = document.getElementById("sort-by-district");
+    if (sortByDistrictButton.dataset.sorted === "true") {
+        orders.sort((a, b) => a.diachinhan.localeCompare(b.diachinhan));
+    }
+
+    // Hiển thị danh sách
+    showOrders(orders);
+}
+
+// Sự kiện thay đổi bộ lọc và sắp xếp
+document.getElementById("filter-status").addEventListener("change", filterAndSortOrders);
+document.getElementById("sort-by-district").addEventListener("click", function () {
+    this.dataset.sorted = this.dataset.sorted === "true" ? "false" : "true";
+    filterAndSortOrders();
+});
