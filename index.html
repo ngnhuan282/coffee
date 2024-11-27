@@ -577,29 +577,33 @@
             </header>
             <div class="thanhtoan">
                 <div class="qr-code">
-                    <h3> Ứng dụng mobile quét mã QR</h3>
+                    <h4> Ứng dụng mobile quét mã QR</h4>
                     <div class="banking-content">
                         
                     </div>
                 </div>
                 <div class="form-banking">
-                    <h3> Thanh toán qua Ngân hàng </h3>
+                    <h4> Thanh toán qua Ngân hàng </h4>
                     <form class="atm-form" action="">
                         <div class="input-form">
                             <i class="fa-brands fa-cc-mastercard"></i>
-                            <input type="text" placeholder="Nhập số thẻ">
+                            <input id="sothe" type="text" placeholder="Nhập số thẻ">
                         </div>
                         <div class="input-form">
                             <i class="fa-regular fa-calendar"></i>
-                            <input type="text" placeholder="01/12">
+                            <input id="ngayhethan" type="text" placeholder="01/12">
                         </div>
-                        <p>Ngày phát hành</p>
+                        <p>Ngày hết hạn</p>
                         <div class="input-form">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" placeholder="DFGDFG">
+                            <input id="tenchuthe" type="text" placeholder="Tên chủ thẻ">
+                        </div>
+                        <div class="input-form">
+                            <i class="fas fa-credit-card"></i>
+                            <input id="ccv" type="text" placeholder="CCV">
                         </div>
                         <p>Tôi đồng ý với điều khoản sử dụng dịch vụ <input type="checkbox"> </p>
-                        <button class="xacthuc">XÁC THỰC</button>
+                        <button type="submit" class="xacthuc">XÁC THỰC</button>
                         <div class="divider">
                             <p>Hoặc</p>
                         </div>

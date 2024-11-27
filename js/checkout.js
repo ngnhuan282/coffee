@@ -201,6 +201,7 @@ function thanhtoanpage(option,product) {
                         }, 3000);
                     }, 20000);
             });
+            
         }
     });
 } 
