@@ -729,8 +729,8 @@ function renderOrderProduct() {
                     </div>
                 </div>`;
             });
-            let textCompl = item.trangthai == 1 ? "Đã xử lý" : "Đang xử lý";
-            let classCompl = item.trangthai == 1 ? "complete" : "no-complete"
+            let textCompl = item.trangthai == 1 ? "Đã xử lý" : item.trangthai == 2 ? "Đã giao hàng" :item.trangthai == 3 ? "Đã hủy đơn" : "Đang xử lý";
+            let classCompl = item.trangthai == 1 || item.trangthai == 2 ? "complete" :  item.trangthai == 3 ? "cancel" : "no-complete";
             productHtml += `<div class="order-history-control">
                 <div class="order-history-status">
                     <span class="order-history-status-sp ${classCompl}">${textCompl}</span>

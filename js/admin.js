@@ -347,12 +347,23 @@ btnAddProduct.addEventListener("click", () => {
 // Close Popup Modal
 let closePopup = document.querySelectorAll(".modal-close");
 let modalPopup = document.querySelectorAll(".modal");
-
+let modal = document.querySelector(".modal.detail-order");
+let modalContainer=document.querySelector(".modal.detail-order .modal-container");
 for (let i = 0; i < closePopup.length; i++) {
     closePopup[i].onclick = () => {
         modalPopup[i].classList.remove("open");
     };
+    
 }
+// them close outside
+
+    modal.addEventListener('click',function(){
+        modal.classList.remove("open")
+    });
+
+    modalContainer.addEventListener('click',function(event){
+        event.stopPropagation()
+    });
 
 // On change Image
 function uploadImage(el) {
@@ -360,18 +371,111 @@ function uploadImage(el) {
     document.querySelector(".upload-image-preview").setAttribute("src", path);
 }
 
-// Đổi trạng thái đơn hàng
-function changeStatus(id, el) {
+// Đổi nguoc trạng thái đơn hàng
+function changeStatusUndo(id, el) {  ////////////////////////////////////////////////////////////////////////
     let orders = JSON.parse(localStorage.getItem("order"));
     let order = orders.find((item) => {
         return item.id == id;
     });
-    order.trangthai = 1;
-    el.classList.remove("btn-chuaxuly");
-    el.classList.add("btn-daxuly");
-    el.innerHTML = "Đã xử lý";
+    let delivery= document.getElementById("btn-delivery");
+    let cancel = document.getElementById("btn-cancel");
+    let deleteOrder = document.getElementById("btn-delete-order");
+    if (order.trangthai === 0) {
+        order.trangthai = 1; // Chuyển sang "Đã xử lý"
+        delivery.classList.remove("hidden");
+        cancel.classList.remove("hidden");
+        el.classList.remove("btn-chuaxuly");
+        el.classList.add("btn-daxuly");
+        el.innerHTML = "Đã xử lý";
+        toast({ title: 'Xác nhận', message: 'Xác nhận đơn hàng thành công !', type: 'success', duration: 3000 });
+    } else {
+        if(confirm('Hủy xác nhận đơn hàng')){
+        order.trangthai = 0; // Hoàn tác về "Chưa xử lý"
+        delivery.classList.add("hidden");
+        cancel.classList.add("hidden");
+        deleteOrder.classList.add("hidden");
+        el.classList.remove("btn-daxuly");
+        el.classList.add("btn-chuaxuly");
+        el.innerHTML = "Chưa xử lý";
+        // toast({ title: 'da xu ly', message: 'da xu ly thành công !', type: 'error', duration: 3000 });
+        }
+    }
     localStorage.setItem("order", JSON.stringify(orders));
     findOrder(orders);
+}
+
+//Giao hàng
+function delivery(id){
+    let orders = JSON.parse(localStorage.getItem("order"));
+    let order = orders.find((item) => {
+        return item.id == id;
+    });
+
+   let btnConfirm = document.getElementById("btn-confirm");
+   let cancel = document.getElementById("btn-cancel");
+
+    let deleteOrder = document.getElementById("btn-delete-order");
+
+    if(confirm('Xác nhận giao hàng ?')){
+    if(order.trangthai===1||order.trangthai===3){
+        order.trangthai = 2;
+        toast({ title: 'Giao Hàng', message: 'Đã giao hàng thành công!', type: 'success', duration: 3000 });
+        btnConfirm.classList.add("hidden");
+        cancel.classList.add("hidden");
+        deleteOrder.classList.remove("hidden");
+    }
+    localStorage.setItem("order", JSON.stringify(orders));
+    findOrder();
+    }
+}
+
+//Hủy đơn
+function cancel(id){
+    let orders = JSON.parse(localStorage.getItem("order"));
+    let order = orders.find((item) => {
+        return item.id == id;
+    });
+
+    let btnConfirm = document.getElementById("btn-confirm");
+    let delivery = document.getElementById("btn-delivery");
+
+
+    let deleteOrder = document.getElementById("btn-delete-order");
+    
+    if(confirm('Xác nhận hủy đơn ?')){
+    if(order.trangthai===1||order.trangthai===2){
+        order.trangthai = 3;
+        toast({ title: 'Hủy đơn', message: 'Hủy đơn thành công!', type: 'danger', duration: 3000 });
+        btnConfirm.classList.add("hidden");
+        delivery.classList.add("hidden");
+        deleteOrder.classList.remove("hidden");
+    }
+    localStorage.setItem("order", JSON.stringify(orders));
+    findOrder();
+    }
+}
+
+//Xóa đơn
+function deleteOrder(id){
+    if(confirm('Xác nhận xóa đơn hàng ?')){
+   
+    let orders = JSON.parse(localStorage.getItem("order"));
+    
+    orders = orders.filter(item => item.id !== id)               
+    
+    localStorage.setItem("order", JSON.stringify(orders));
+//delete details too (not only the order)(trong storage) 
+    let orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
+
+    orderDetails = orderDetails.filter(item => item.madon !== id)
+    localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+    
+    let closePopup=document.getElementsByClassName("modal detail-order open")[0];
+    console.log(closePopup);
+    closePopup.classList.remove("open");
+
+    findOrder();
+    }
 }
 
 // Format Date
@@ -392,7 +496,9 @@ function showOrder(arr) {
         orderHtml = `<td colspan="6">Không có dữ liệu</td>`
     } else {
         arr.forEach((item) => {
-            let status = item.trangthai == 0 ? `<span class="status-no-complete">Chưa xử lý</span>` : `<span class="status-complete">Đã xử lý</span>`;
+            let status = item.trangthai == 0 ? `<span class="status-no-complete">Chưa xử lý</span>` : item.trangthai == 1 ? `<span class="status-complete">Đã xử lý</span>` 
+            : item.trangthai==2 ? `<span class="status-complete">Đã giao hàng</span>` : `<span class="status-no-complete">Đã hủy đơn</span>` ;
+
             let date = formatDate(item.thoigiandat);
             orderHtml += `
             <tr>
@@ -506,13 +612,18 @@ function detailOrder(id) {
         </div>
     </div>
     <div class="modal-detail-bottom-right">
-        <button class="modal-detail-btn ${classDetailBtn}" onclick="changeStatus('${order.id}',this)">${textDetailBtn}</button>
-    </div>`;
+        <button id="btn-delete-order" class="modal-detail-btn btn-delete-order ${order.trangthai == 2 || order.trangthai == 3 ? "" : "hidden"}" onclick="deleteOrder('${order.id}')" >${'Xóa đơn'}</button>
+        <button id="btn-cancel" class="modal-detail-btn btn-cancel-order ${order.trangthai == 0 || order.trangthai == 2 ? "hidden" : ""}" onclick="cancel('${order.id}')" >${'Hủy đơn'}</button>
+        <button id="btn-delivery" class="modal-detail-btn btn-delivery ${order.trangthai == 0 || order.trangthai == 3 ? "hidden" : ""}" onclick="delivery('${order.id}')" >${'Đã giao hàng'}</button>
+        <button id="btn-confirm" class="modal-detail-btn ${classDetailBtn} ${order.trangthai == 2 || order.trangthai == 3 ? "hidden" : ""}" onclick="changeStatusUndo('${order.id}',this)" >${textDetailBtn}</button>
+    </div>`
 }
 
 // Find Order
 function findOrder() {
     let tinhTrang = parseInt(document.getElementById("tinh-trang").value);
+    const str ="quận";
+    console.log(tinhTrang);
     let ct = document.getElementById("form-search-order").value;
     let timeStart = document.getElementById("time-start").value;
     let timeEnd = document.getElementById("time-end").value;
@@ -522,9 +633,12 @@ function findOrder() {
         return;
     }
     let orders = localStorage.getItem("order") ? JSON.parse(localStorage.getItem("order")) : [];
-    let result = tinhTrang == 2 ? orders : orders.filter((item) => {
+    let result = tinhTrang == 4 ? orders :tinhTrang == 5 ? orders.filter(item => item.diachinhan.includes(str)) 
+    : 
+    orders.filter((item) => {               //cac truong hop con lai
         return item.trangthai == tinhTrang;
     });
+    
     result = ct == "" ? result : result.filter((item) => {
         return (item.khachhang.toLowerCase().includes(ct.toLowerCase()) || item.id.toString().toLowerCase().includes(ct.toLowerCase()));
     });
