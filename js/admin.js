@@ -932,7 +932,7 @@ function filterAndSortOrders() {
     }
 
     // Hiển thị danh sách
-    showOrders(orders);
+    showOrder(orders);
 }
 
 // Sự kiện thay đổi bộ lọc và sắp xếp
@@ -941,3 +941,5 @@ document.getElementById("sort-by-district").addEventListener("click", function (
     this.dataset.sorted = this.dataset.sorted === "true" ? "false" : "true";
     filterAndSortOrders();
 });
+
+
