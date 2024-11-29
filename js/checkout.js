@@ -207,7 +207,7 @@ function thanhtoanpage(option,product) {
                 });
 
                 document.getElementById("cardholderName").addEventListener('focus', function(e){
-                    this.placeholder = "Nguyễn Văn A";
+                    this.placeholder = "Huynh Anh Nhut";
                 });
                 document.getElementById("cardholderName").addEventListener('blur', function(e){
                     this.placeholder = "Tên chủ thẻ";

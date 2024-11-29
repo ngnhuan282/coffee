@@ -1050,7 +1050,7 @@ label a {
 
 .modal.detail-order-product .modal-container,
 .modal.detail-order .modal-container {
-    width: 800px;
+    width: 900px;
     height: 450px;
     overflow: hidden;
 }
