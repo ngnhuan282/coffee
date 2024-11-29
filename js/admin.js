@@ -468,6 +468,10 @@ function detailOrder(id) {
                 <span class="detail-order-item-right">${order.hinhthucgiao}</span>
             </li>
             <li class="detail-order-item">
+            <span class="detail-order-item-left"><i class="fa-solid fa-wallet"></i> Phương thức thanh toán</span>
+            <span class="detail-order-item-right">${order.phuongthucthanhtoan}</span>
+            </li>
+            <li class="detail-order-item">
             <span class="detail-order-item-left"><i class="fa-thin fa-person"></i> Người nhận</span>
             <span class="detail-order-item-right">${order.tenguoinhan}</span>
             </li>

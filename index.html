@@ -586,24 +586,25 @@
                     <h4> Thanh toán qua Ngân hàng </h4>
                     <form class="atm-form" action="">
                         <div class="input-form">
-                            <i class="fa-brands fa-cc-mastercard"></i>
-                            <input id="sothe" type="text" placeholder="Nhập số thẻ">
+                            <i class="fa-solid fa-credit-card"></i>
+                            <input id="numberCard" type="text" placeholder="Nhập số thẻ" >
                         </div>
+                        <p style="color: red;" id="errorCard"></p>
                         <div class="input-form">
                             <i class="fa-regular fa-calendar"></i>
-                            <input id="ngayhethan" type="text" placeholder="01/12">
+                            <input id="expiryDate" type="text" placeholder="Ngày hết hạn">
                         </div>
-                        <p>Ngày hết hạn</p>
+                        <p  style="color: red;" id="errorDate"></p>
                         <div class="input-form">
                             <i class="fa-regular fa-user"></i>
-                            <input id="tenchuthe" type="text" placeholder="Tên chủ thẻ">
+                            <input id="cardholderName" type="text" placeholder="Tên chủ thẻ">
                         </div>
                         <div class="input-form">
                             <i class="fas fa-credit-card"></i>
                             <input id="ccv" type="text" placeholder="CCV">
                         </div>
-                        <p>Tôi đồng ý với điều khoản sử dụng dịch vụ <input type="checkbox"> </p>
-                        <button type="submit" class="xacthuc">XÁC THỰC</button>
+                        <p  style="color: red;" id="errorCCV"></p>
+                        <button id="xacthuc">XÁC THỰC</button>
                         <div class="divider">
                             <p>Hoặc</p>
                         </div>

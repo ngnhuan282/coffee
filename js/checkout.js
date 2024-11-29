@@ -1,9 +1,8 @@
 const PHIVANCHUYEN = 30000;
 let priceFinal = document.getElementById("checkout-cart-price-final");
-let MyBank = {
-    BankID: "MB",
-    AcountID: "0926213561",
-}
+
+
+
 let interval;
 // Trang thanh toan
 function thanhtoanpage(option,product) {
@@ -145,6 +144,8 @@ function thanhtoanpage(option,product) {
     // Su kien khu nhan nut dat hang
     document.querySelector(".complete-checkout-btn").addEventListener('click', function(e){
         e.preventDefault();
+        if(document.querySelector(".banking-page").classList.contains('active'))
+            document.querySelector(".banking-page").classList.remove('active');
         let giaoTanNoi = document.querySelector("#giaotannoi");
         let tuDenLay = document.querySelector("#tudenlay");
         let tenNguoiNhan = document.getElementById('tennguoinhan').value;
@@ -183,7 +184,128 @@ function thanhtoanpage(option,product) {
             });
             document.getElementById('banking').addEventListener('click', function(e){
                 e.preventDefault();
-                console.log(totalPrice);
+                this.classList.add(".active");
+                document.getElementById("numberCard").addEventListener('focus', function(e){
+                    this.placeholder = "1111 111 111 1111";
+                });
+                document.getElementById("numberCard").addEventListener('blur', function(e){
+                    this.placeholder = "Nhập số thẻ";
+                });
+
+                document.getElementById("ccv").addEventListener('focus', function(e){
+                    this.placeholder = "123";
+                });
+                document.getElementById("ccv").addEventListener('blur', function(e){
+                    this.placeholder = "CCV";
+                });
+
+                document.getElementById("expiryDate").addEventListener('focus', function(e){
+                    this.placeholder = "MM/yy";
+                });
+                document.getElementById("expiryDate").addEventListener('blur', function(e){
+                    this.placeholder = "Ngày hết hạn";
+                });
+
+                document.getElementById("cardholderName").addEventListener('focus', function(e){
+                    this.placeholder = "Nguyễn Văn A";
+                });
+                document.getElementById("cardholderName").addEventListener('blur', function(e){
+                    this.placeholder = "Tên chủ thẻ";
+                });
+                
+                
+                document.getElementById("numberCard").addEventListener('input', function(e){
+                    let input = e.target;
+                    let value = input.value.replace(/\D/g, '');
+                    if(value.length > 16){
+                        value = value.substring(0, 16);
+                    }
+                    let formattedValue = value.replace(/(.{4})(?=.)/g, '$1 ');
+                    input.value = formattedValue;
+                });
+
+                document.getElementById('expiryDate').addEventListener('input', function(e){
+                    let input = e.target;
+                    let value = input.value.replace(/\D/g, '');
+                    if(value.length > 4){
+                        value = value.substring(0, 4);
+                    }
+                    let formattedValue = value.replace(/(.{2})(?=.)/g, '$1/');
+                    input.value = formattedValue;
+                });
+                document.getElementById('ccv').addEventListener('input', function(e){
+                    let input = e.target;
+                    let value = input.value.replace(/\D/g, '');
+                    if(value.length > 3){
+                        value = value.substring(0,3);
+                    }
+                    input.value = value;
+                });
+                document.getElementById('cardholderName').addEventListener('input', function(e){
+                    let input = e.target;
+                    let value = input.value.replace(/[^a-zA-Z\s]/g, '');
+                    input.value = value;
+                })
+
+                document.getElementById('xacthuc').addEventListener("click", function(e){
+                    e.preventDefault();
+                    let numberCard = document.getElementById('numberCard').value;
+                    let expiryDate = document.getElementById('expiryDate').value;
+                    let cardholderName = document.getElementById('cardholderName').value;
+                    let ccv = document.getElementById('ccv').value;
+
+                    if(numberCard && expiryDate && cardholderName && ccv){
+                        let errorCard = document.getElementById('errorCard');
+                        let errorDate = document.getElementById('errorDate');
+                        let errorCCV = document.getElementById('errorCCV');
+                        if(numberCard.length < 19){
+                           errorCard.innerText = "Số thể không hợp lệ";
+                        }
+                        else if(ccv.length < 3){
+                               errorCCV.innerText = "CCV không hợp lệ";
+                        }
+                        else if(expiryDate.length < 5){
+                            errorDate.innerText = "Ngày hết hạn không hợp lệ";
+                        }
+                        else{
+                            const checkExpiryDate = (expiryDate) => {
+                                const [month, year] = expiryDate.split("/");
+                                const currentYear = new Date().getFullYear();
+                                const currentMonth = new Date().getMonth() + 1; 
+                                
+                                const expiryMonth = parseInt(month, 10);
+                                let expiryYear = parseInt("20" + year, 10); 
+                                if(expiryMonth > 12)
+                                    return {valid: false, message: "Tháng hết hạn không hợp lệ"};
+                                if (expiryYear < currentYear) {
+                                    return {valid: false, message: "Năm hết hạn không nhỏ hơn năm hiện tại"};
+                                }
+                                if (expiryYear === currentYear && expiryMonth < currentMonth) {
+                                    return {valid: false, message: "Tháng hết hạn không nhỏ hơn tháng hiện tại"};
+                                }
+                            
+                                return {valid: true , message: "Thành công"};
+                            };
+                            const result = checkExpiryDate(expiryDate);
+                            if(!result.valid){
+                                errorDate.innerText = result.message;
+                            }
+                            else{
+                                switch (option) {
+                                    case 1:
+                                        xulyDathang();
+                                        break;
+                                    case 2:
+                                        xulyDathang(product);
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                    else 
+                        alert("Thanh toán thất bại !!! ");
+                });
+
                 const bankingpage = document.querySelector('.banking-page');
                 bankingpage.classList.add('active');
                 checkoutpage.classList.remove('active');
@@ -214,7 +336,6 @@ async function checkPaid(totalPrice, lastContent, option, product) {
         const lastPaid = data.data[data.data.length - 1];
         if(lastPaid["Giá trị"] >= totalPrice && lastPaid["Mô tả"].includes(lastContent)){
             clearInterval(interval);
-            alert("Đã đặt hàng thành công !!!");
             switch(option) {
                 case 1:
                     xulyDathang();
@@ -229,6 +350,8 @@ async function checkPaid(totalPrice, lastContent, option, product) {
         console.error("loiii");
     }
 }
+
+
 
 // Hien thi hang trong gio
 function showProductCart() {
@@ -307,10 +430,12 @@ function xulyDathang(product) {
     let diachinhan = "";
     let hinhthucgiao = "";
     let thoigiangiao = "";
+    let phuongthucthanhtoan = "";
     let giaotannoi = document.querySelector("#giaotannoi");
     let tudenlay = document.querySelector("#tudenlay");
     let giaongay = document.querySelector("#giaongay");
     let giaovaogio = document.querySelector("#deliverytime");
+    let hinhthucthanhtoan = document.querySelector(".banking-page");
     // Hinh thuc giao & Dia chi nhan hang
     if(giaotannoi.classList.contains("active")) {
         diachinhan = document.querySelector("#diachinhan").value;
@@ -328,6 +453,11 @@ function xulyDathang(product) {
         hinhthucgiao = tudenlay.innerText;
     }
 
+    if(hinhthucthanhtoan.classList.contains("active")){
+        phuongthucthanhtoan = "Chuyển khoản";
+    }
+    else
+        phuongthucthanhtoan = "Thanh toán sau khi nhận hàng";
     // Thoi gian nhan hang
     if(giaongay.checked) {
         thoigiangiao = "Giao ngay khi xong";
@@ -365,6 +495,7 @@ function xulyDathang(product) {
             id: madon,
             khachhang: currentUser.phone,
             hinhthucgiao: hinhthucgiao,
+            phuongthucthanhtoan: phuongthucthanhtoan,
             ngaygiaohang: document.querySelector(".pick-date.active").getAttribute("data-date"),
             thoigiangiao: thoigiangiao,
             ghichu: document.querySelector(".note-order").value,
@@ -384,7 +515,7 @@ function xulyDathang(product) {
         localStorage.setItem("order",JSON.stringify(order));
         localStorage.setItem("currentuser",JSON.stringify(currentUser));
         localStorage.setItem("orderDetails",JSON.stringify(orderDetails));
-        toast({ title: 'Thành công', message: 'Đặt hàng thành công !', type: 'success', duration: 1000 });
+        alert("Thanh toán thành công !!! ");
         setTimeout((e)=>{
             window.location = "/";
         },2000);  

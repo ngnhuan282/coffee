@@ -2342,7 +2342,7 @@ button.thanh-toan.disabled {
     background-color: rgb(141, 138, 135);
     
 }
-.xacthuc{
+#xacthuc{
     background-color: var(--orange);
 }
 .huy{
