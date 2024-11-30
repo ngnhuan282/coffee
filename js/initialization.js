@@ -134,7 +134,7 @@ function createProduct() {
         {
             id: 15,
             status: 1, 
-            title: 'Trà sữa Oolong nướng sương sáo',
+            title: 'Trà Oolong nướng sương sáo',
             img: './images/trasuaoolongnuongsuongsao.png',      
             category: 'Trà sữa',  
             price: 59000,
@@ -143,7 +143,7 @@ function createProduct() {
         {
             id: 16,
             status: 1, 
-            title: 'Trà sữa Oolong tứ quý bơ',
+            title: 'Sữa Oolong tứ quý bơ',
             img: './images/trasuaoolongtuquybo.png',      
             category: 'Trà sữa',  
             price: 59000,
@@ -152,7 +152,7 @@ function createProduct() {
         {
             id: 17,
             status: 1, 
-            title: 'Trà sữa Oolong tứ quý sương sáo',
+            title: 'Trà Oolong tứ quý sương sáo',
             img: './images/trasuaoolongtuquysuongsao.png',      
             category: 'Trà sữa',  
             price: 59000,
