@@ -118,7 +118,7 @@ document.querySelector("#product-detail-content").innerHTML = modalHtml;
         if (localStorage.getItem('currentuser')) {
             addCart(infoProduct.id);
         } else {
-            toast({ title: 'Warning', message: 'Chưa đăng nhập tài khoản !', type: 'warning', duration: 3000 });
+            alert("Chưa đăng nhập tài khoản !");
         }
 
     })
@@ -452,16 +452,16 @@ signupButton.addEventListener('click', () => {
                 accounts.push(user);
                 localStorage.setItem('accounts', JSON.stringify(accounts));
                 localStorage.setItem('currentuser', JSON.stringify(user));
-                toast({ title: 'Thành công', message: 'Tạo thành công tài khoản !', type: 'success', duration: 3000 });
+                alert("Tạo tài khoản thành công");
                 closeModal();
                 kiemtradangnhap();
                 updateAmount();
             } else {
-                toast({ title: 'Thất bại', message: 'Tài khoản đã tồn tại !', type: 'error', duration: 3000 });
+                alert("Tài khoản đã tồn tại !");
             }
         } else {
-            toast({ title: 'Thất bại', message: 'Sai mật khẩu !', type: 'error', duration: 3000 });
-        }
+                alert("Sai mật khẩu !")        
+            }
     }
 }
 )
@@ -494,20 +494,20 @@ loginButton.addEventListener('click', () => {
     if (phonelog && passlog) {
         let vitri = accounts.findIndex(item => item.phone == phonelog);
         if (vitri == -1) {
-            toast({ title: 'Error', message: 'Tài khoản của bạn không tồn tại', type: 'error', duration: 3000 });
+            alert("Tài khoản không tồn tại !");
         } else if (accounts[vitri].password == passlog) {
             if(accounts[vitri].status == 0) {
-                toast({ title: 'Warning', message: 'Tài khoản của bạn đã bị khóa', type: 'warning', duration: 3000 });
+                alert("Tài khoản đã bị khóa !");
             } else {
                 localStorage.setItem('currentuser', JSON.stringify(accounts[vitri]));
-                toast({ title: 'Success', message: 'Đăng nhập thành công', type: 'success', duration: 3000 });
+                alert("Đăng nhập thành công");
                 closeModal();
                 kiemtradangnhap();
                 checkAdmin();
                 updateAmount();
             }
         } else {
-            toast({ title: 'Warning', message: 'Sai mật khẩu', type: 'warning', duration: 3000 });
+            alert("Sai mật khẩu !");
         }
     }
 })
@@ -617,7 +617,7 @@ function changeInformation() {
     localStorage.setItem('currentuser', JSON.stringify(user));
     localStorage.setItem('accounts', JSON.stringify(accounts));
     kiemtradangnhap();
-    toast({ title: 'Success', message: 'Cập nhật thông tin thành công !', type: 'success', duration: 3000 });
+    alert("Cập nhật thông tin thành công !");
 }
 
 // Đổi mật khẩu 
@@ -669,7 +669,7 @@ function changePassword() {
                                 })
                                 accountChange.password = userChange.password;
                                 localStorage.setItem('accounts', JSON.stringify(accounts));
-                                toast({ title: 'Success', message: 'Đổi mật khẩu thành công !', type: 'success', duration: 3000 });
+                                alert("Đổi mật khẩu thành công !");
                             } else {
                                 document.querySelector('.password-after-comfirm-error').innerHTML = 'Mật khẩu bạn nhập không trùng khớp';
                             }

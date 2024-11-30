@@ -11,11 +11,11 @@ function toast({
         //Auto remove toast
         const autoRemove = setTimeout(function(){
             main.removeChild(toast);
-        },duration+1000);
+        },duration+5000);
         //Remove toast when click btn close
         toast.onclick = function(e){
             if(e.target.closest('.fa-regular')){
-                main.removeChild(toast);
+                // main.removeChild(toast);
                 clearTimeout(autoRemove);
             }
         }

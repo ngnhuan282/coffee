@@ -622,7 +622,7 @@ function detailOrder(id) {
 // Find Order
 function findOrder() {
     let tinhTrang = parseInt(document.getElementById("tinh-trang").value);
-    const str ="quận";
+    const str ="Quận";
     console.log(tinhTrang);
     let ct = document.getElementById("form-search-order").value;
     let timeStart = document.getElementById("time-start").value;
