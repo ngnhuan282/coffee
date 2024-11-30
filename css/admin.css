@@ -1050,7 +1050,7 @@ label a {
 
 .modal.detail-order-product .modal-container,
 .modal.detail-order .modal-container {
-    width: 900px;
+    width: 800px;
     height: 450px;
     overflow: hidden;
 }
@@ -1237,43 +1237,6 @@ label a {
     border-radius: 5px;
     font-size: 15px;
     display: inline-block;
-}
-
-.btn-delivery{
-    background-color: #27ae60;
-}
-.btn-delivery::before{
-    content: "\f0d1";
-    font-family: "Font Awesome 6 Pro";
-    position: absolute;
-    left: 20px;             
-}
-
-.btn-cancel-order{
-    background-color: #f04e2e;
-}
-
-.btn-cancel-order::before{
-    content: "\f05e";
-    font-family: "Font Awesome 6 Pro";
-    position: absolute;
-    left: 22px;
-}
-
-.btn-delete-order{
-    background-color: #f04e2e;
-}
-
-.btn-delete-order::before{
-    content: "\f1f8";
-    font-family: "Font Awesome 6 Pro";
-    position: absolute;
-    left: 22px;
-}
-
-
-.hidden{
-    display:none;
 }
 
 .btn-chuaxuly {

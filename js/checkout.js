@@ -258,16 +258,31 @@ function thanhtoanpage(option,product) {
                         let errorCard = document.getElementById('errorCard');
                         let errorDate = document.getElementById('errorDate');
                         let errorCCV = document.getElementById('errorCCV');
+                        let ok = true;
                         if(numberCard.length < 19){
                            errorCard.innerText = "Số thể không hợp lệ";
-                        }
-                        else if(ccv.length < 3){
-                               errorCCV.innerText = "CCV không hợp lệ";
-                        }
-                        else if(expiryDate.length < 5){
-                            errorDate.innerText = "Ngày hết hạn không hợp lệ";
+                           ok = false;
                         }
                         else{
+                            errorCard.innerText = "";
+                            ok = true;
+                        }
+                        if(ccv.length < 3){
+                               errorCCV.innerText = "CCV không hợp lệ";
+                               ok = false;
+                        }
+                        else{
+                            errorCCV.innerText = "";
+                            ok = true;
+                        }
+                        if(expiryDate.length < 5){
+                            errorDate.innerText = "Ngày hết hạn không hợp lệ";
+                            ok = false;
+                        }
+                        else{
+                            errorDate.innerText = "";
+                            ok = true;
+                        }
                             const checkExpiryDate = (expiryDate) => {
                                 const [month, year] = expiryDate.split("/");
                                 const currentYear = new Date().getFullYear();
@@ -289,8 +304,12 @@ function thanhtoanpage(option,product) {
                             const result = checkExpiryDate(expiryDate);
                             if(!result.valid){
                                 errorDate.innerText = result.message;
+                                ok = false;
                             }
                             else{
+                                ok = true;
+                            }
+                            if(ok){
                                 switch (option) {
                                     case 1:
                                         xulyDathang();
@@ -300,7 +319,6 @@ function thanhtoanpage(option,product) {
                                         break;
                                 }
                             }
-                        }
                     }
                     else 
                         alert("Thanh toán thất bại !!! ");
@@ -489,7 +507,7 @@ function xulyDathang(product) {
     let sdtnhan = document.querySelector("#sdtnhan").value
 
     if(tennguoinhan == "" || sdtnhan == "" || diachinhan == "") {
-        toast({ title: 'Chú ý', message: 'Vui lòng nhập đầy đủ thông tin !', type: 'warning', duration: 4000 });
+       alert("vui lòng nhập thông tin đầy đủ !!!");
     } else {
         let donhang = {
             id: madon,
