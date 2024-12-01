@@ -1923,7 +1923,7 @@ button.thanh-toan.disabled {
   outline: 5px auto -webkit-focus-ring-color;
 }
 .checkout-header {
-  background-color: var(--white);
+  background-color: var(--orange);
   text-align: center;
   padding: 20px;
   border-bottom: 1px solid #eee;
