@@ -1,0 +1,168 @@
+@font-face {font-family: "SFProDisplay";src: url("../font/SFPRODISPLAY/SFProDisplay-Regular.ttf") format("truetype");font-weight: 400;font-display: fallback;}
+@font-face {font-family: "SFProDisplay";src: url("../font/SFPRODISPLAY/SFProDisplay-Light.ttf") format("truetype");font-weight: 300;font-display: fallback;}
+@font-face {font-family: "SFProDisplay";src: url("../font/SFPRODISPLAY/SFProDisplay-Medium.ttf") format("truetype");font-weight: 500;font-display: fallback;}
+@font-face {font-family: "SFProDisplay";src: url("../font/SFPRODISPLAY/SFProDisplay-Bold.ttf") format("truetype");font-weight: bold;font-display: fallback;}
+@font-face {font-family: "SFProDisplay";src: url("../font/SFPRODISPLAY/SFProDisplay-Semibold.ttf") format("truetype");font-weight: 600;font-display: fallback;}
+@font-face {font-family: "SFProDisplay";src: url("../font/SFPRODISPLAY/SFProDisplay-Heavy.ttf") format("truetype");font-weight: 800;font-display: fallback;}
+
+
+/* Định dạng chung cho form */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Các nhóm trường input */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+/* Trường select cho trạng thái */
+.form-group select {
+    cursor: pointer;
+}
+
+/* Định dạng các nút hành động */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-save, .btn-cancel {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+}
+
+/* Định dạng cho các thông báo toast */
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+
+
+/* Cải thiện giao diện cho checkbox trạng thái */
+.edit-account {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.edit-account-e .form-label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.switch-input {
+    opacity: 0;
+    position: absolute;
+}
+
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    background-color: #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Núm gạt bên trong */
+.switch::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.3s ease;
+    top: 4px;
+    left: 4px;
+}
+
+/* Khi checkbox được chọn (nút gạt qua phải) */
+.switch-input:checked + .switch {
+    background-color: #fdb927; /* Màu khi bật */
+}
+
+.switch-input:checked + .switch::before {
+    transform: translateX(26px); /* Di chuyển nút gạt qua phải */
+}
+
+/* Khi người dùng di chuột vào nút gạt */
+.switch:hover {
+    background-color: #bbb;
+}
