@@ -1062,7 +1062,7 @@ label a {
 .modal-detail-order>div {
     width: 50%;
     overflow-y: auto;
-    height: 350px;
+    height: 550px;
 }
 
 .modal-detail-order>div::-webkit-scrollbar {
