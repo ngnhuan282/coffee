@@ -81,7 +81,70 @@ td {
     margin-right: 20px; /* Khoảng cách từ cạnh phải màn hình */
 }
 
-        
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+    /* Thông tin sản phẩm */
+    .product-info img.product-image {
+        width: 70%; /* Giảm kích thước ảnh xuống 70% trên màn hình nhỏ */
+    }
+
+    /* Điều chỉnh các phần tử trong bảng cho phù hợp với màn hình nhỏ */
+    table {
+        font-size: 14px; /* Giảm kích thước chữ trong bảng */
+    }
+
+    th, td {
+        padding: 6px; /* Giảm padding trong bảng */
+    }
+
+    /* Căn lại các cột trong bảng cho phù hợp */
+    td {
+        word-wrap: break-word;
+    }
+
+    /* Tạo phần cuộn ngang cho bảng nếu nó quá rộng */
+    .order-details table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Tổng cộng ở góc phải */
+    .total {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+    /* Giảm kích thước ảnh xuống */
+    .product-info img.product-image {
+        width: 80%;
+    }
+
+    /* Thu nhỏ các văn bản trong thông tin sản phẩm */
+    .product-info p {
+        font-size: 14px;
+    }
+
+    /* Điều chỉnh các phần tử của bảng */
+    table {
+        font-size: 12px; /* Giảm font size của bảng */
+    }
+
+    th, td {
+        padding: 4px; /* Giảm padding bảng cho màn hình nhỏ */
+    }
+
+    /* Tổng cộng */
+    .total {
+        font-size: 12px;
+        margin-right: 5px;
+    }
+}
+
     </style>
 </head>
 

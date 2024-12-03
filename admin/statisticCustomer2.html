@@ -12,11 +12,30 @@
     <title>Quản lý cửa hàng</title>
 
     <style>
-        #customer-statistical {             /* Sử dụng Flexbox */
-        justify-content: center;    /* Căn giữa theo chiều ngang */
-        align-items: center;
-        text-align: center;        /* Căn giữa theo chiều dọc */ 
-        }
+       #top5 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px; /* Giảm khoảng cách dưới */
+    padding: 0; /* Xóa padding nếu có */
+}
+
+.table {
+    margin-top: 0; /* Xóa margin trên của bảng */
+    padding-top: 0; /* Xóa padding nếu có */
+}
+
+/* Giảm khoảng cách từ các phần tử <br /> */
+h2#top5 + br {
+    margin-bottom: 0px; /* Giảm khoảng cách sau <h2> */
+}
+
+h2#top5 + br + br {
+    margin-bottom: 0px; /* Giảm khoảng cách giữa các <br /> */
+}
+
+
     </style>
 </head>
 
@@ -200,7 +219,7 @@
                                 <td><p>Nguyễn Văn A</p></td>
                                 <td>20</td>
                                 <td>1.000.000&nbsp;₫</td>
-                                <td><button class="btn-detail product-order-detail" data-id="1"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                                <td><button class="btn-detail product-order-detail" data-id="1"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
                                 </tr>      
                                 
                                 <tr>
@@ -208,7 +227,7 @@
                                 <td><p>Nguyễn Thị Bưởi</p></td>
                                 <td>12</td>
                                 <td>600.000&nbsp;₫</td>
-                                <td><button class="btn-detail product-order-detail" data-id="2"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                                <td><button class="btn-detail product-order-detail" data-id="2"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
                                 </tr>  
                                 
                                 <tr>
@@ -216,7 +235,7 @@
                                 <td><p>Trần Văn B</p></td>
                                 <td>4</td>
                                 <td>200.000&nbsp;₫</td>
-                                <td><button class="btn-detail product-order-detail" data-id="3"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                                <td><button class="btn-detail product-order-detail" data-id="3"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
                                 </tr>  
 
                                 <tr>
@@ -224,8 +243,24 @@
                                 <td><p>Nguyễn Văn Tèo</p></td>
                                 <td>8</td>
                                 <td>400.000&nbsp;₫</td>
-                                <td><button class="btn-detail product-order-detail" data-id="4"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                                <td><button class="btn-detail product-order-detail" data-id="4"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
                                 </tr>  
+
+                                <tr>
+                                <td>5</td>
+                                <td><p>Nguyễn Văn C</p></td>
+                                <td>2</td>
+                                <td>100.000&nbsp;₫</td>
+                                <td><button class="btn-detail product-order-detail" data-id="4"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                                </tr>  
+
+                                <tr>
+                                    <td>6</td>
+                                    <td><p>Nguyễn Hoàng Phúc</p></td>
+                                    <td>5</td>
+                                    <td>250.000&nbsp;₫</td>
+                                    <td><button class="btn-detail product-order-detail" data-id="4"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                                    </tr>  
                                 </tbody>
                         </tbody>
                     </table>
@@ -244,6 +279,67 @@
                     </li>
                 </ul>
             </div>
+            
+            <h2 id="top5">TOP5 Khách hàng mua nhiều nhất</h2>
+            <br/>
+            <br/>
+            <div class="table">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>STT</td>
+                            <td>Tên khách hàng</td>
+                            <td>Số lượng đơn</td>
+                            <td>Doanh thu</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="showTk">
+                        <tbody id="showTk">
+                            <tr>
+                            <td>1</td>
+                            <td><p>Nguyễn Văn A</p></td>
+                            <td>30</td>
+                            <td>1.000.000&nbsp;₫</td>
+                            <td><button class="btn-detail product-order-detail" data-id="1"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                            </tr>      
+                            
+                            <tr>
+                            <td>2</td>
+                            <td><p>Nguyễn Văn Tèo</p></td>
+                            <td>12</td>
+                            <td>800.000&nbsp;₫</td>
+                            <td><button class="btn-detail product-order-detail" data-id="1"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                            </tr>   
+
+                            <tr>
+                            <td>3</td>
+                            <td><p>Nguyễn Thị Bưởi</p></td>
+                            <td>10</td>
+                            <td>500.000&nbsp;₫</td>
+                            <td><button class="btn-detail product-order-detail" data-id="1"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                            </tr>   
+
+                            <tr>
+                            <td>4</td>
+                            <td><p>Nguyễn Văn C</p></td>
+                            <td>8</td>
+                            <td>400.000&nbsp;₫</td>
+                            <td><button class="btn-detail product-order-detail" data-id="1"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                            </tr> 
+                            
+                            <tr>
+                            <td>5</td>
+                            <td><p>Nguyễn Hoàng Phúc</p></td>
+                            <td>5</td>
+                            <td>200.000&nbsp;₫</td>
+                            <td><button class="btn-detail product-order-detail" data-id="1"><a href="userBill.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
+                            </tr> 
+                            </tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         
         </main>
     </div>
