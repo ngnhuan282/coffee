@@ -956,6 +956,7 @@ header {
 
 .page-nav-item a {
   display: inline-block;
+  background-color: #ffffffBD;
   color: var(--black);
   border: 2px solid #000;
   height: 30px;
@@ -965,6 +966,7 @@ header {
   border-radius: 50%;
   font-size: 15px;
 }
+
 
 .page-nav-item.active a,.page-nav-item a:hover {
   background-color: var(--orange);
