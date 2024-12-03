@@ -1239,7 +1239,7 @@ label a {
     display: inline-block;
 }
 
-btn-delivery{
+.btn-delivery{
     background-color: #27ae60;
 }
 .btn-delivery::before{
@@ -1265,7 +1265,7 @@ btn-delivery{
 }
 
 .btn-delete-order::before{
-    content: "\f1f8";
+    content: "\f00d";
     font-family: "Font Awesome 6 Pro";
     position: absolute;
     left: 22px;
