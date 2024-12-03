@@ -1930,6 +1930,7 @@ button.thanh-toan.disabled {
   border-radius: 10px;
   outline: none;
   border: none;
+  cursor: pointer;
   font-weight: 600;
 }
 .pay-method button:focus{
@@ -1970,7 +1971,8 @@ button.thanh-toan.disabled {
 .checkout-section {
   padding-top: 15px;
   display: flex;
-  column-gap: 20px;
+  column-gap: 40px;
+  justify-content: space-between;
 }
 
 .checkout-row,
@@ -2058,8 +2060,8 @@ button.thanh-toan.disabled {
 .type-order-btn:hover,
 .type-order-btn.active {
   border: 1px solid var(--orange);
-  background-color: none;
-  color: var(--branch-color);
+  background-color: var(--orange);
+  color: var(--text-color);
 }
 
 .type-order-btn i {
@@ -2303,7 +2305,6 @@ button.thanh-toan.disabled {
 }
 
 .box-banking{
-    border: 1px solid #333;
     justify-content: center;
     padding: 20px 60px;
 }
