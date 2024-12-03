@@ -1343,6 +1343,11 @@ input[type=number] {
   justify-content: space-between;
   margin-bottom: 15px;
   position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+.order-history img{
+  background-color: aqua;
+  
 }
 
 .order-history-left {
@@ -1862,6 +1867,7 @@ button.thanh-toan.disabled {
 #order-history.open {
   display: flex !important;
   justify-content: center;
+  align-items: center;
 }
 
 
