@@ -15,7 +15,7 @@
   <title> Lucy </title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -90,16 +90,16 @@
                       <li class="header-middle-right-item dropdown open">
                           <i class="fa fa-user" aria-hidden="true"></i>
                           <div class="auth-container">
-                              <span class="text-dndk">Tài khoản</span>
-                              <span class="text-tk">Lucy <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              <span class="text-dndk">Đăng nhập / Đăng ký</span>
+                              <span class="text-tk">Tài khoản <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              </span>
                           </div>
                           <ul class="header-middle-right-menu">
-                            <li><a href="userinfo.html"><i class="fa-light fa-circle-user"></i> Tài khoản của tôi</a></li>
-                            <li><a href="history.html" onclick="orderHistory()"><i class="fa-regular fa-bags-shopping"></i> Đơn hàng đã mua</a></li>
-                            <li class="border"><a id="logout" href="../index.html"><i class="fa-light fa-right-from-bracket"></i> Thoát tài khoản</a></li>
+                              <li><a id="login" href="login.html"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Đăng nhập</a></li>
+                              <li><a id="signup" href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a></li>
                           </ul>
                       </li>
-                      <li class="header-middle-right-item open">
+                      <li class="header-middle-right-item open" onclick="remind()">
                           <div class="cart-icon-menu">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             <span class="count-product-cart">0</span>
@@ -201,6 +201,366 @@
                 <h2 class="home-title">MENU</h2>
             </div>
             <div class="home-products" id="home-products">
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="">
+                            <img class="card-image" src="../images/bacxiu.png" alt="">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="">Bạc sỉu</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">39000VNĐ</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="ctspBacSiu()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="">Cà phê</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">35000VNĐ</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-product">
+                    <article class="card-product" >
+                        <div class="card-header">
+                            <a href="#" class="card-image-link" onclick="detailProduct(${product.id})">
+                            <img class="card-image" src="${product.img}" alt="${product.title}">
+                            </a>
+                        </div>
+                        <div class="food-info">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#" class="card-title-link" onclick="detailProduct(${product.id})">${product.title}</a>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="product-price">
+                                    <span class="current-price">${vnd(product.price)}</span>
+                                </div>
+                            <div class="product-buy">
+                                <button onclick="detailProduct(${product.id})" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                            </div> 
+                        </div>
+                        </div>
+                    </article>
+                </div>
             </div>
             <div class="page-nav">
                 <ul class="page-nav-list">
@@ -684,12 +1044,12 @@
   <!-- footer section -->
 
   <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="..js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
+  <script src="../js/bootstrap.js"></script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
@@ -698,16 +1058,16 @@
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
-  <script src="js/custom.js"></script>
+  <script src="../js/custom.js"></script>
   <!-- Google Map
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script> -->
   <!-- End Google Map -->
-   <script src="./js/main.js"></script>
-   <script src="./js/admin.js"></script>
-   <script src="./js/initialization.js"></script>
-   <script src="./js/checkout.js"></script>
-   <script src="./js/toast-message.js"></script>
+   <script src="../js/main.js"></script>
+   <script src="../js/admin.js"></script>
+   <script src="../js/initialization.js"></script>
+   <script src="../js/checkout.js"></script>
+   <script src="../js/toast-message.js"></script>
 
    <script>
         function remind () {

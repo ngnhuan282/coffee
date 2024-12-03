@@ -90,16 +90,16 @@
                       <li class="header-middle-right-item dropdown open">
                           <i class="fa fa-user" aria-hidden="true"></i>
                           <div class="auth-container">
-                              <span class="text-dndk">Tài khoản</span>
-                              <span class="text-tk">Lucy <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              <span class="text-dndk">Đăng nhập / Đăng ký</span>
+                              <span class="text-tk">Tài khoản <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              </span>
                           </div>
                           <ul class="header-middle-right-menu">
-                            <li><a href="userinfo.html"><i class="fa-light fa-circle-user"></i> Tài khoản của tôi</a></li>
-                            <li><a href="history.html" onclick="orderHistory()"><i class="fa-regular fa-bags-shopping"></i> Đơn hàng đã mua</a></li>
-                            <li class="border"><a id="logout" href="../index.html"><i class="fa-light fa-right-from-bracket"></i> Thoát tài khoản</a></li>
+                              <li><a id="login" href="login.html"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Đăng nhập</a></li>
+                              <li><a id="signup" href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a></li>
                           </ul>
                       </li>
-                      <li class="header-middle-right-item open">
+                      <li class="header-middle-right-item open" onclick="remind()">
                           <div class="cart-icon-menu">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             <span class="count-product-cart">0</span>
@@ -116,12 +116,12 @@
   <nav class="header-bottom">
     <div class="container">
         <ul class="menu-list">
-            <li class="menu-list-item"><a href="" class="menu-link">Trang chủ</a></li>
-            <li class="menu-list-item" onclick="showCategory('Cà phê')"><a href="javascript:;" class="menu-link">Cà phê</a></li>
-            <li class="menu-list-item" onclick="showCategory('Trà trái cây')"><a href="javascript:;" class="menu-link">Trà trái cây</a></li>
-            <li class="menu-list-item" onclick="showCategory('Trà sữa')"><a href="javascript:;" class="menu-link">Trà sữa</a></li>
-            <li class="menu-list-item" onclick="showCategory('Đá xay')"><a href="javascript:;" class="menu-link">Đá xay</a></li>
-            <li class="menu-list-item" onclick="showCategory('Bánh ngọt')"><a href="javascript:;" class="menu-link">Bánh ngọt</a></li>
+            <li class="menu-list-item"><a href="index.html" class="menu-link">Trang chủ</a></li>
+            <li class="menu-list-item"><a href="caphe.html"class="menu-link">Cà phê</a></li>
+            <li class="menu-list-item" ><a href="tratraicay.html" class="menu-link">Trà trái cây</a></li>
+            <li class="menu-list-item" ><a href="trasua.html" class="menu-link">Trà sữa</a></li>
+            <li class="menu-list-item" ><a href="daxay.html" class="menu-link">Đá xay</a></li>
+            <li class="menu-list-item" ><a href="banhngot.html" class="menu-link">Bánh ngọt</a></li>
         </ul>
     </div>
   </nav>
@@ -156,9 +156,40 @@
   <!-- food section -->
   <main class="main-wrapper">
         <div class="container" id="trangchu">
-            <div class="home-slider">
-                <img src="./images/banner.png" alt="">
-            </div>
+            <section class="body-detail">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="box-product">
+                                <img src="./images/caphedenda.png" alt="" class="img-fluid" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-product">
+                                <h2>Cà phê đen đá</h2>
+                                <p class="price">29.000 đ</p>
+                                <p class="description">
+                                    Như trong mv của Amee , Đen đá nhưng có đường đậm chất hương vị Việt Nam , đậm đà hơn cà phê Laura của Nhật Kim Anh. Uống xong rất tỉnh táo và hùng hục sức khỏe.
+                                </p>
+                                <div class="size"></div>
+                                <h2>Chọn size:</h2>
+                                <select name="size" id="size">
+                                  <option value="S" selected> Nhỏ +0đ</option>
+                                  <option value="M"> Vừa +5.000đ</option>
+                                  <option value="L"> Lớn +10.000đ</option>
+                                </select> <br/>
+                                <br/>
+                               
+                                <div class="Soluong">
+                                    <label for="quantity"><h2>Số lượng:</h2></label>
+                                    <input type="number" id="quantity" name="quantity" min="1" max="100" step="1" value="1">
+                                </div>
+                                <button class="btn btn-warning mt-3">Thêm vào giỏ hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <div class="home-service" id="home-service">
                 <div class="home-service-item">
                     <div class="home-service-item-icon">
@@ -197,16 +228,6 @@
                     </div>
                 </div>
             </div>
-            <div class="home-title-block" id="home-title">
-                <h2 class="home-title">MENU</h2>
-            </div>
-            <div class="home-products" id="home-products">
-            </div>
-            <div class="page-nav">
-                <ul class="page-nav-list">
-                </ul>
-            </div>
-        </div>
         <div class="container" id="account-user">
             <div class="main-account">
                 <div class="main-account-header">

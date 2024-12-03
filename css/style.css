@@ -367,7 +367,7 @@ header {
 }
 
 .header-middle .container {
-  padding: 7px 10px;
+  padding: 16px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -610,6 +610,7 @@ header {
   display: flex;
   height: 40px;
   white-space: nowrap;
+  padding: 0 16px;
   overflow-x: auto;
   overflow-y: hidden;
   justify-content: center;
@@ -722,6 +723,10 @@ header {
 
 /* Main Menu */
 .main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   overflow: hidden;
   padding-top: 60px
 }
