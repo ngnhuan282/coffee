@@ -10,9 +10,3 @@
     </ol>
 </p>
 
-<b> Tài khoản admin <b/>
-<ol>
-    <li>Tài khoản: admin</li>
-    <li>Mật khẩu: 123456</li>
-</ol>
-
