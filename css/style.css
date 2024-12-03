@@ -2410,3 +2410,101 @@ divider::after {
   width: 300px;
   height: 300px;
 }
+
+/*phan cua minleo*/
+.product-container {
+  display: flex;
+  gap: 120px; /* Khoang cach giua cac box */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product-card {
+  width: 300px;
+  background-color: #eeeeee;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #ff5722;
+  margin: 5px 0 15px;
+}
+
+.order-button {
+  background-color: #ffbe33;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.order-button:hover {
+  background-color: #ffa500;
+}
+
+.order-icon {
+  font-size: 16px;
+}
+
+.product-name {
+  color: black; 
+  transition: color 0.3s; 
+}
+
+/* .home-products :hover {
+  background-color: #c0c0c092;
+} */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination a {
+  text-decoration: none;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination a.active {
+  background-color: #ffbe33;
+  color: white;
+  border-color: #ffffff;
+}
+
+.pagination a.prev, .pagination a.next {
+  font-weight: bold;
+}
