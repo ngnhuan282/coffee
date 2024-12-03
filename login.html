@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Reset các giá trị mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Để căn giữa logo và form theo chiều dọc */
+    height: 100vh;
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 20px; /* Khoảng cách giữa logo và form đăng nhập */
+}
+
+.logo-img {
+    width: 120px; /* Kích thước của logo */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Căn giữa logo */
+}
+
+/* Container của form đăng nhập */
+.login-container {
+    text-align: center;
+}
+
+/* Form đăng nhập */
+.login-box {
+    background-color: #fff;
+    padding: 40px 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Tiêu đề của form */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Mô tả ngắn gọn của form */
+.login-description {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* Các nhóm input */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Nhãn cho input */
+label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Các input trong form */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Hiệu ứng khi focus vào input */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ff6445;
+}
+
+/* Nút đăng nhập */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    background-color: #f04e2e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #ff3209;
+}
+
+/* Liên kết Đăng ký và Quên mật khẩu */
+.links {
+    margin-top: 20px; /* Tăng khoảng cách giữa các liên kết */
+}
+
+.links p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.links a {
+    font-size: 14px;
+    color: #f04e2e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .login-btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .logo-img {
+        width: 100px; /* Thu nhỏ logo trên màn hình nhỏ */
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <!-- Logo outside the login box -->
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo" class="logo-img">
+        </div>
+
+        <div class="login-box">
+            <h2>Đăng Nhập</h2>
+            <p class="login-description">Chào mừng bạn quay lại! Vui lòng đăng nhập để bắt đầu mua hàng.</p>
+
+            <form action="index.html" method="POST" class="login-form">
+                <div class="input-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                </div>
+
+                <div class="login-actions">
+                    <button type="submit" class="login-btn">Đăng nhập</button>
+                    <div class="links">
+                        <p>Bạn chưa có tài khoản?</p>
+                        <a href="register.html" class="register-link">Đăng ký ngay</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function submitLogin()
+        {
+            window.location.href = "index.html"
+        }
+    </script>
+</body>
+
+</html>
