@@ -62,13 +62,13 @@
                             <div class="hidden-sidebar">Đơn hàng</div>
                         </a>
                     </li>
-                    <li class="sidebar-list-item tab-content active">
-                        <a href="#" class="sidebar-link">
+                    <li class="sidebar-list-item tab-content">
+                        <a href="statistic.html" class="sidebar-link">
                             <div class="sidebar-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
                             <div class="hidden-sidebar">Thống kê sản phẩm</div>
                         </a>
                     </li>
-                    <li class="sidebar-list-item tab-content">
+                    <li class="sidebar-list-item tab-content active">
                         <a href="statisticCustomer.html" class="sidebar-link">
                             <div class="sidebar-icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
                             <div class="hidden-sidebar">Thống kê khách hàng</div>
@@ -120,7 +120,7 @@
             </div> -->
             <div class="section active">
                 <div class="admin-control">
-                    <div class="admin-control-left">
+                    <!-- <div class="admin-control-left">
                         <select name="the-loai-tk" id="the-loai-tk" onchange="">
                             <option>Tất cả</option>
                             <option>Cà phê</option>
@@ -130,11 +130,11 @@
                             <option>Bánh ngọt</option>
                             <option>Đã xóa</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="admin-control-center">
                         <form action="" class="form-search">
                             <span class="search-btn"><i class="fa-light fa-magnifying-glass" onclick="reloadPage()"></i></span>
-                            <input id="form-search-tk" type="text" class="form-search-input" placeholder="Tìm kiếm tên món..." oninput="">
+                            <input id="form-search-tk" type="text" class="form-search-input" placeholder="Tìm kiếm tên khách hàng" oninput="">
                         </form>
                     </div>
                     <div class="admin-control-right">
@@ -153,7 +153,7 @@
                         <button class="btn-reset-order" onclick="reloadPage()"><i class="fa-light fa-arrow-rotate-right"></i></button>                    
                     </div>
                 </div>
-                <div class="order-statistical" id="order-statistical">
+                <!-- <div class="order-statistical" id="order-statistical">
                     <div class="order-statistical-item">
                         <div class="order-statistical-item-content">
                             <p class="order-statistical-item-content-desc">Sản phẩm được bán ra</p>
@@ -181,15 +181,15 @@
                             <i class="fa-light fa-dollar-sign"></i>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="table">
                     <table width="100%">
                         <thead>
                             <tr>
                                 <td>STT</td>
-                                <td>Tên món</td>
-                                <td>Số lượng bán</td>
-                                <td>Doanh thu</td>
+                                <td>Tên khách hàng</td>
+                                <td>Số lượng đơn</td>
+                                <td>Tổng tiền</td>
                                 <td></td>
                             </tr>
                         </thead>
@@ -197,43 +197,35 @@
                             <tbody id="showTk">
                                 <tr>
                                 <td>1</td>
-                                <td><div class="prod-img-title"><img class="prd-img-tbl" src="../images/trasuaoolong.png" alt=""><p>Trà Sữa Oolong</p></div></td>
-                                <td>5</td>
-                                <td>245.000&nbsp;₫</td>
+                                <td><p>Nguyễn Văn A</p></td>
+                                <td>20</td>
+                                <td>1.000.000&nbsp;₫</td>
                                 <td><button class="btn-detail product-order-detail" data-id="1"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
                                 </tr>      
                                 
                                 <tr>
                                 <td>2</td>
-                                <td><div class="prod-img-title"><img class="prd-img-tbl" src="../images/frostymatcha.png" alt=""><p>Frosty Matcha</p></div></td>
-                                <td>3</td>
-                                <td>180.000 &nbsp;₫</td>
+                                <td><p>Nguyễn Thị Bưởi</p></td>
+                                <td>12</td>
+                                <td>600.000&nbsp;₫</td>
                                 <td><button class="btn-detail product-order-detail" data-id="2"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
-                                </tr>      
+                                </tr>  
                                 
                                 <tr>
                                 <td>3</td>
-                                <td><div class="prod-img-title"><img class="prd-img-tbl" src="../images/bacxiu.png" alt=""><p>Bạc Xỉu</p></div></td>
-                                <td>2</td>
-                                <td>78.000&nbsp;₫</td>
+                                <td><p>Trần Văn B</p></td>
+                                <td>4</td>
+                                <td>200.000&nbsp;₫</td>
                                 <td><button class="btn-detail product-order-detail" data-id="3"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
-                                </tr>      
-                                
+                                </tr>  
+
                                 <tr>
                                 <td>4</td>
-                                <td><div class="prod-img-title"><img class="prd-img-tbl" src="../images/banhgau.png" alt=""><p>Bánh Gấu Chocolate</p></div></td>
-                                <td>2</td>
-                                <td>38.000&nbsp;₫</td>
+                                <td><p>Nguyễn Văn Tèo</p></td>
+                                <td>8</td>
+                                <td>400.000&nbsp;₫</td>
                                 <td><button class="btn-detail product-order-detail" data-id="4"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
-                                </tr>      
-                                
-                                <tr>
-                                <td>5</td>
-                                <td><div class="prod-img-title"><img class="prd-img-tbl" src="../images/tradaocamsa.png" alt=""><p>Trà đào cam sả</p></div></td>
-                                <td>1</td>
-                                <td>39.000&nbsp;₫</td>
-                                <td><button class="btn-detail product-order-detail" data-id="5"><a href="order.html" style="color: inherit; text-decoration: none"><i class="fa-regular fa-eye"></i> Chi tiết</button></a></td>
-                                </tr>      
+                                </tr>  
                                 </tbody>
                         </tbody>
                     </table>
@@ -242,13 +234,13 @@
             <div class="page-nav">
                 <ul class="page-nav-list">
                     <li class="page-nav-item active">
-                        <a href="statistic.html">1</a>
+                        <a href="statisticCustomer.html">1</a>
                     </li>
                     <li class="page-nav-item">
-                        <a href="statistic2.html">2</a>
+                        <a href="statisticCustomer2.html">2</a>
                     </li>
                     <li class="page-nav-item">
-                        <a href="statistic3.html">3</a>
+                        <a href="statisticCustomer3.html">3</a>
                     </li>
                 </ul>
             </div>
