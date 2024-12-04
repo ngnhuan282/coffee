@@ -129,7 +129,7 @@
         </ul>
     </div>
   </nav>
-  <div class="advanced-search">
+  <div class="advanced-search open">
     <div class="container">
         <div class="advanced-search-category">
             <span>Phân loại </span>
@@ -914,6 +914,12 @@
         function thongBao(){
             alert("Bạn cần phải đăng nhập tài khoản !");
         }
+        document.querySelector('.search-btn').addEventListener('click', ()=>{
+            window.location.href = "./indexTimKiem.html";
+        });
+        document.getElementById('advanced-search-price-btn').addEventListener('click', ()=>{
+            window.location.href = "./indexTimKiem.html";
+        })
    </script>
 </body>
 
