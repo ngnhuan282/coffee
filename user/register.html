@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: #ffffffBD;
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
         }
@@ -43,6 +43,12 @@
             font-size: 24px;
         }
 
+        .login-container img{
+            width: 120px;
+            display: block;
+            margin: 0 auto;
+        }
+
         .input-group {
             margin-bottom: 20px;
             position: relative;
@@ -66,7 +72,7 @@
         .register-btn {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            background: #E69C00;
             color: white;
             border: none;
             border-radius: 8px;
@@ -74,7 +80,7 @@
             transition: all 0.3s ease;
         }
 
-        .register:hover {
+        .register-btn:hover {
             transform: scale(1.02);
         }
 
@@ -93,6 +99,7 @@
 </head>
 <body>
     <div class="login-container">
+        <img src="../images/logo.png" alt="">
         <h2>Đăng Ký Tài Khoản</h2>
         <form>
             <div class="input-group">
