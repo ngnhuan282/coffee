@@ -88,18 +88,36 @@
                           </div>
                       </li> -->
                       <li class="header-middle-right-item dropdown open">
-                          <i class="fa fa-user" aria-hidden="true"></i>
-                          <div class="auth-container">
-                              <span class="text-tk">Tài khoản <i class="fa fa-caret-down" aria-hidden="true"></i>
-                              </span>
-                              <span>Lucy</span>
-                          </div>
-                          <ul class="header-middle-right-menu"> 
-                                <li><a href="userinfo.html"><i class="fa-light fa-circle-user"></i> Tài khoản của tôi</a></li>
-                                <li><a href="history.html" onclick="orderHistory()"><i class="fa-regular fa-bags-shopping"></i> Đơn hàng đã mua</a></li>
-                                <li class="border"><a id="logout" href="../index.html"><i class="fa-light fa-right-from-bracket"></i> Thoát tài khoản</a></li>
-                          </ul>
-                      </li>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <div class="auth-container">
+                            <span class="text-tk">Tài khoản <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                            <span>Lucy</span>
+                        </div>
+                        <ul class="header-middle-right-menu"> 
+                              <li><a href="userinfo.html"><i class="fa-light fa-circle-user"></i> Tài khoản của tôi</a></li>
+                              <li><a href="history.html" onclick="orderHistory()"><i class="fa-regular fa-bags-shopping"></i> Đơn hàng đã mua</a></li>
+                              <li class="border"><a id="logout" href="../index.html"><i class="fa-light fa-right-from-bracket"></i> Thoát tài khoản</a></li>
+                        </ul>
+                    </li>
+                    <li class="header-middle-right-item open" onclick="remind()">
+                        <div class="cart-icon-menu">
+                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                          <span class="count-product-cart">0</span>
+                        </div>
+                        <span id="cart-text">Giỏ hàng</span>
+                    </li>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <div class="auth-container">
+                            <span class="text-dndk">Đăng nhập / Đăng ký</span>
+                            <span class="text-tk">Tài khoản <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <ul class="header-middle-right-menu">
+                            <li><a id="login" href="login.html"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Đăng nhập</a></li>
+                            <li><a id="signup" href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a></li>
+                        </ul>
+                    </li>
                       <li class="header-middle-right-item open" onclick="remind()">
                           <div class="cart-icon-menu">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -220,7 +238,7 @@
                                     <span class="current-price">59000VNĐ</span>
                                 </div>
                             <div class="product-buy">
-                                <button onclick="thongBao()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                                <button onclick="ctspOn()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
                             </div> 
                         </div>
                         </div>
@@ -244,7 +262,7 @@
                                     <span class="current-price">49000VNĐ</span>
                                 </div>
                             <div class="product-buy">
-                                <button onclick="thongBao()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                                <button onclick="ctspHts()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
                             </div> 
                         </div>
                         </div>
@@ -268,7 +286,7 @@
                                     <span class="current-price">49000VNĐ</span>
                                 </div>
                             <div class="product-buy">
-                                <button onclick="thongBao()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                                <button onclick="ctspTdm()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
                             </div> 
                         </div>
                         </div>
@@ -785,7 +803,15 @@
    <script src="../js/toast-message.js"></script>
 
    <script>
-        
+        function ctspHts(){
+            window.location.href = "hongtrasuatranchau.html";
+        }
+        function ctspOn(){
+            window.location.href = "trasuaoolongnuong.html";
+        }
+        function ctspTdm(){
+            window.location.href = "tradenmachiato.html";
+        }
    </script>
 </body>
 
