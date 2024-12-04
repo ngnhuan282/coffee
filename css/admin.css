@@ -1399,3 +1399,62 @@ label a {
     height: 607px;
     margin: 130px auto;
 }
+
+.size-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 26px;
+}
+
+.size-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.size-price {
+    width: 138px;
+    height: 30px;
+    padding: 8px 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s linear;
+}
+
+.size-price:focus {
+    border-color: var(--orange);
+}
+
+.size-label-large {
+    padding-right: 2px; 
+}
+
+.size-checkbox-custom input[type="checkbox"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #cac9c9; 
+    background-color: white; 
+    border-radius: 4px; 
+    cursor: pointer;
+    position: relative;
+}
+
+.size-checkbox-custom input[type="checkbox"]:checked {
+    background-color: #fdb927; 
+    border-color: #fdb927;
+}
+
+.size-checkbox-custom input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top : 1px;
+    left: 5px;
+    width: 4px;
+    height: 10px;
+    border: solid white; 
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
