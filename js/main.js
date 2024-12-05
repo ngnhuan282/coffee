@@ -307,20 +307,20 @@
 // }
 
 // // Open Search Advanced
-// document.querySelector(".filter-btn").addEventListener("click",(e) => {
-//     e.preventDefault();
-//     document.querySelector(".advanced-search").classList.toggle("open");
-//     document.getElementById("home-service").scrollIntoView();
-// })
+document.querySelector(".filter-btn").addEventListener("click",(e) => {
+    e.preventDefault();
+    document.querySelector(".advanced-search").classList.toggle("open");
+    document.getElementById("home-service").scrollIntoView();
+})
 
 // document.querySelector(".form-search-input").addEventListener("click",(e) => {
 //     e.preventDefault();
 //     document.getElementById("home-service").scrollIntoView();
 // })
 
-// function closeSearchAdvanced() {
-//     document.querySelector(".advanced-search").classList.toggle("open");
-// }
+function closeSearchAdvanced() {
+    document.querySelector(".advanced-search").classList.toggle("open");
+}
 
 // //Open Search Mobile 
 // function openSearchMb() {
