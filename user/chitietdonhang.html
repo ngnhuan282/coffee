@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -104,7 +103,7 @@
                       <li class="header-middle-right-item open" onclick="remind()">
                           <div class="cart-icon-menu">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <span class="count-product-cart">3</span>
+                            <span class="count-product-cart">0</span>
                           </div>
                           <span id="cart-text">Giỏ hàng</span>
                       </li>
@@ -138,11 +137,15 @@
             </div>
         </div>
         <div class="order-address">
-            <p class="address-title"><span>📍</span> Địa Chỉ Nhận Hàng</p>
-            <p>Minh Nguyễn | SĐT: (+84)3508 | Địa chỉ: 80 Nguyễn Trãi , Tp Hồ Chí Minh</p>
+            <p class="address-title"><span>💵</span> Phương thức thanh toán</p>
+            <p>Tiền mặt (cash) </p>
+        </div>
+        <div class="order-address">
+            <p class="address-title"><span>📍</span> Phương thức giao hàng</p>
+            <p>Giao hàng tới :  Minh Nguyễn | SĐT: (+84)3508 | Địa chỉ: 80 Nguyễn Trãi , Tp Hồ Chí Minh</p>
         </div>
         <div class="order-status">
-            <p><span>✅</span> Đơn hàng đã được giao thành công</p>
+            <p><span>✅</span> Đơn hàng đã được hoàn thành</p>
             <p><strong>Tổng thanh toán: 113.000đ</strong></p>
         </div>
     </main>
@@ -570,11 +573,11 @@
    <script src="../js/toast-message.js"></script>
 
    <script>
-        function thongBao(){
+        function remind () {
             alert("Bạn cần phải đăng nhập tài khoản !");
         }
-        function remind () {
-            window.location.href = "./cart.html";
+        function thongBao(){
+            alert("Bạn cần phải đăng nhập tài khoản !");
         }
    </script>
 </body>
