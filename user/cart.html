@@ -30,6 +30,7 @@
   <link href="../css/responsive.css" rel="stylesheet" />
   <!-- Toast message style-->
   <link rel="stylesheet" href=../css/toast-message.css">
+  
 </head>
 
 <body>
@@ -134,7 +135,7 @@
             <div class="cart-pay">
               <a href="checkout39k+ship.html">Thanh toán</a>
             </div>
-            <button>Xóa</button>
+            <button onClick="confirmDelete()">Xóa</button>
           </div>
         </div>
       </div>
@@ -154,7 +155,7 @@
           <div class="cart-pay">
             <a href="checkout59k+ship.html">Thanh toán</a>
           </div>
-          <button>Xóa</button>
+          <button onClick="confirmDelete()">Xóa</button>
         </div>
       </div>
       <div class="product">
@@ -173,7 +174,7 @@
           <div class="cart-pay">
             <a href="checkout39k+ship.html">Thanh toán</a>
           </div>
-          <button>Xóa</button>
+          <button onClick="confirmDelete()">Xóa</button>
         </div>
       </div>
       <div class="cart-checkout">
@@ -313,6 +314,16 @@
         });
         function remind () {
             window.location.href = "./cart.html";
+        }
+
+        function confirmDelete()
+        {
+          confirm("Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?");
+          if(confirm)
+          {
+            alert("Xóa sản phẩm thành công !");
+            location.reload();
+          }
         }
    </script>
 </body>
