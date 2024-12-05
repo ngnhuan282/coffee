@@ -15,21 +15,21 @@
   <title> Lucy </title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
   <!-- font awesome style -->
-  <link href="../css/font-awesome.min.css" rel="stylesheet" />
-  <link href="../fonts/font-awesome-pro-v6-6.2.0/css/all.min.css" rel="stylesheet" />
+  <link href="./css/font-awesome.min.css" rel="stylesheet" />
+  <link href="./fonts/font-awesome-pro-v6-6.2.0/css/all.min.css" rel="stylesheet" />
   <!-- Custom styles for this temp  late -->
-  <link href="../css/style.css" rel="stylesheet" />
+  <link href="./css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="../css/responsive.css" rel="stylesheet" />
+  <link href="./css/responsive.css" rel="stylesheet" />
   <!-- Toast message style-->
-  <link rel="stylesheet" href=../css/toast-message.css">
+  <link rel="stylesheet" href=./css/toast-message.css">
 </head>
 
 <body>
@@ -62,7 +62,7 @@
               <div class="header-middle-left">
                   <div class="header-logo">
                       <a href="">
-                          <img src="../images/logo.png" alt="" class="header-logo-img">
+                          <img src="./images/logo.png" alt="" class="header-logo-img">
                       </a>
                   </div>
               </div>
@@ -88,25 +88,24 @@
                           </div>
                       </li> -->
                       <li class="header-middle-right-item dropdown open">
-                          <i class="fa fa-user" aria-hidden="true"></i>
-                          <div class="auth-container">
-                              <span class="text-tk">Tài khoản <i class="fa fa-caret-down" aria-hidden="true"></i>
-                              </span>
-                              <span>Lucy</span>
-                          </div>
-                          <ul class="header-middle-right-menu"> 
-                                <li><a href="userinfo.html"><i class="fa-light fa-circle-user"></i> Tài khoản của tôi</a></li>
-                                <li><a href="history.html" onclick="orderHistory()"><i class="fa-regular fa-bags-shopping"></i> Đơn hàng đã mua</a></li>
-                                <li class="border"><a id="logout" href="../index.html"><i class="fa-light fa-right-from-bracket"></i> Thoát tài khoản</a></li>
-                          </ul>
-                      </li>
-                      <li class="header-middle-right-item open" onclick="remind()">
-                          <div class="cart-icon-menu">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <span class="count-product-cart">3</span>
-                          </div>
-                          <span id="cart-text">Giỏ hàng</span>
-                      </li>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <div class="auth-container">
+                            <span class="text-dndk">Đăng nhập / Đăng ký</span>
+                            <span class="text-tk">Tài khoản <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <ul class="header-middle-right-menu">
+                            <li><a id="login" href="/user/login.html"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>Đăng nhập</a></li>
+                            <li><a id="signup" href="/user/register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a></li>
+                        </ul>
+                    </li>
+                    <li class="header-middle-right-item open" onclick="remind()">
+                        <div class="cart-icon-menu">
+                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                          <span class="count-product-cart">0</span>
+                        </div>
+                        <span id="cart-text">Giỏ hàng</span>
+                    </li>
                   </ul>
               </div>
           </div>
@@ -118,11 +117,11 @@
     <div class="container">
         <ul class="menu-list">
             <li class="menu-list-item"><a href="./indexTK.html" class="menu-link">Trang chủ</a></li>
-            <li class="menu-list-item"><a href="./capheTK1.html"class="menu-link">Cà phê</a></li>
-            <li class="menu-list-item" ><a href="./tratraicayTK1.html" class="menu-link">Trà trái cây</a></li>
-            <li class="menu-list-item" ><a href="./trasua1TK1.html" class="menu-link">Trà sữa</a></li>
-            <li class="menu-list-item" ><a href="./daxayTK1.html" class="menu-link">Đá xay</a></li>
-            <li class="menu-list-item" ><a href="./banhngotTK1.html" class="menu-link">Bánh ngọt</a></li>
+            <li class="menu-list-item"><a href="./caphe1.html"class="menu-link">Cà phê</a></li>
+            <li class="menu-list-item" ><a href="./tratraicay1.html" class="menu-link">Trà trái cây</a></li>
+            <li class="menu-list-item" ><a href="./trasua1.html" class="menu-link">Trà sữa</a></li>
+            <li class="menu-list-item" ><a href="./daxay1.html" class="menu-link">Đá xay</a></li>
+            <li class="menu-list-item" ><a href="./banhngot1.html" class="menu-link">Bánh ngọt</a></li>
         </ul>
     </div>
   </nav>
@@ -157,6 +156,9 @@
   <!-- food section -->
   <main class="main-wrapper">
         <div class="container" id="trangchu">
+            <div class="home-slider">
+                <img src="./images/banner.png" alt="">
+            </div>
             <div class="home-service" id="home-service">
                 <div class="home-service-item">
                     <div class="home-service-item-icon">
@@ -196,29 +198,28 @@
                 </div>
             </div>
             <div class="home-title-block" id="home-title">
-                <h2 class="home-title">Kết quả tìm kiếm</h2>
+                <h2 class="home-title">MENU</h2>
             </div>
-            <h4>Đã tìm thấy 10 kết quả</h4>
             <div class="home-products" id="home-products">
                 <div class="col-product">
                     <article class="card-product" >
                         <div class="card-header">
                             <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/bacxiu.png" alt="Bạc sỉu">
+                            <img class="card-image" src="../images/mochidau.png" alt="">
                             </a>
                         </div>
                         <div class="food-info">
                             <div class="card-content">
                                 <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Bạc sỉu</a>
+                                    <a href="#" class="card-title-link" onclick="">Mochi Dâu</a>
                                 </div>
-                            </div>
+                            </div>  
                             <div class="card-footer">
                                 <div class="product-price">
-                                    <span class="current-price">29000VNĐ</span>
+                                    <span class="current-price">19000VNĐ</span>
                                 </div>
                             <div class="product-buy">
-                                <button onclick="ctspBs()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                                <button onclick="thongBao()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
                             </div> 
                         </div>
                         </div>
@@ -228,21 +229,21 @@
                     <article class="card-product" >
                         <div class="card-header">
                             <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/caphedenda.png" alt="Cà phê đen đá">
+                            <img class="card-image" src="../images/mochimatcha.png" alt="">
                             </a>
                         </div>
                         <div class="food-info">
                             <div class="card-content">
                                 <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Cà phê đen đá</a>
+                                    <a href="#" class="card-title-link" onclick="">Mochi Matcha</a>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="product-price">
-                                    <span class="current-price">35000VNĐ</span>
+                                    <span class="current-price">19000VNĐ</span>
                                 </div>
                             <div class="product-buy">
-                                <button onclick="ctspCfd()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                                <button onclick="thongBao()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
                             </div> 
                         </div>
                         </div>
@@ -252,141 +253,21 @@
                     <article class="card-product" >
                         <div class="card-header">
                             <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/caphesuada.png" alt="">
+                            <img class="card-image" src="../images/mochichocolate.png" alt="">
                             </a>
                         </div>
                         <div class="food-info">
                             <div class="card-content">
                                 <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Cà phê sữa đá</a>
+                                    <a href="#" class="card-title-link" onclick="">Mochi Chocolate</a>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="product-price">
-                                    <span class="current-price">39000VNĐ</span>
+                                    <span class="current-price">19000VNĐ</span>
                                 </div>
                             <div class="product-buy">
-                                <button onclick="ctspCfs()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
-                            </div> 
-                        </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-product">
-                    <article class="card-product" >
-                        <div class="card-header">
-                            <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/trasuaoolongnuong.png" alt="">
-                            </a>
-                        </div>
-                        <div class="food-info">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Trà sữa olong nướng</a>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="product-price">
-                                    <span class="current-price">59000VNĐ</span>
-                                </div>
-                            <div class="product-buy">
-                                <button onclick="ctspOn()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
-                            </div> 
-                        </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-product">
-                    <article class="card-product" >
-                        <div class="card-header">
-                            <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/tradaocamsa.png" alt="">
-                            </a>
-                        </div>
-                        <div class="food-info">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Trà đào cam sả</a>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="product-price">
-                                    <span class="current-price">39000VNĐ</span>
-                                </div>
-                            <div class="product-buy">
-                                <button onclick="ctspTdcs()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
-                            </div> 
-                        </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-product">
-                    <article class="card-product" >
-                        <div class="card-header">
-                            <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/tradaokombucha.png" alt="">
-                            </a>
-                        </div>
-                        <div class="food-info">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Trà đào Kombucha</a>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="product-price">
-                                    <span class="current-price">49000VNĐ</span>
-                                </div>
-                            <div class="product-buy">
-                                <button onclick="ctspTdk()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
-                            </div> 
-                        </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-product">
-                    <article class="card-product" >
-                        <div class="card-header">
-                            <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/trakombucha.png" alt="${product.title}">
-                            </a>
-                        </div>
-                        <div class="food-info">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Trà Kombucha</a>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="product-price">
-                                    <span class="current-price">39000VNĐ</span>
-                                </div>
-                            <div class="product-buy">
-                                <button onclick="ctspTk()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
-                            </div> 
-                        </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-product">
-                    <article class="card-product" >
-                        <div class="card-header">
-                            <a href="#" class="card-image-link" onclick="">
-                            <img class="card-image" src="../images/hongtrasuatranchau.png" alt="">
-                            </a>
-                        </div>
-                        <div class="food-info">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <a href="#" class="card-title-link" onclick="">Hồng trà sữa trân châu</a>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="product-price">
-                                    <span class="current-price">49000VNĐ</span>
-                                </div>
-                            <div class="product-buy">
-                                <button onclick="ctspHts()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
+                                <button onclick="thongBao()" class="card-button order-item"><i class="fa-regular fa-cart-shopping-fast"></i> Đặt món</button>
                             </div> 
                         </div>
                         </div>
@@ -395,8 +276,8 @@
             </div>
             <div class="page-nav">
                 <ul class="page-nav-list">
-                    <li class="page-nav-item active"><a href="./indexTimKiem.html">1</a></li>
-                    <li class="page-nav-item"><a href="./indexTimKiem2.html">2</a></li>
+                    <li class="page-nav-item active"><a href="./banhngot1.html">1</a></li>
+                    <li class="page-nav-item "><a href="./banhngot2.html">2</a></li>
                 </ul>
             </div>
         </div>
@@ -896,45 +777,15 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script> -->
   <!-- End Google Map -->
-   <script src="../js/main.js"></script>
-   <script src="../js/admin.js"></script>
-   <script src="../js/initialization.js"></script>
-   <script src="../js/checkout.js"></script>
-   <script src="../js/toast-message.js"></script>
+   <script src="./js/main.js"></script>
+   <script src="./js/admin.js"></script>
+   <script src="./js/initialization.js"></script>
+   <script src="./js/checkout.js"></script>
+   <script src="./js/toast-message.js"></script>
 
    <script>
-        function ctspBs(){
-            window.location.href = "bacxiu.html";
-        }
-        function ctspCfd(){
-            window.location.href = "caphedenda.html"
-        }
-        function ctspCfs(){
-            window.location.href = "caphesuada.html";
-        }
-        function ctspTdcs(){
-            window.location.href = "tradaocamsa.html";
-        }
-        function ctspHts(){
-            window.location.href = "hongtrasuatranchau.html";
-        }
-        function ctspOn(){
-            window.location.href = "trasuaoolongnuong.html"
-        }
-        function ctspTdk(){
-            window.location.href = "tradaokombucha.html";
-        }
-        function ctspTk(){
-            window.location.href = "trakombucha.html";
-        }
-        document.querySelector('.search-btn').addEventListener('click', ()=>{
-            window.location.href = "indexTimKiem.html";
-        });
-        document.getElementById('advanced-search-price-btn').addEventListener('click', ()=>{
-            window.location.href = "indexTimKiem.html";
-        })
-        function remind () {
-            window.location.href = "./cart.html";
+         function remind(){
+            alert("Bạn cần phải đăng nhập tài khoản !!!")
         }
    </script>
 </body>
