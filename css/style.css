@@ -2524,6 +2524,7 @@ divider::after {
 
 /* Main content */
 .order-details {
+  margin-top: 50px;
   width: 75%;
   padding: 20px;
 }
@@ -2653,6 +2654,7 @@ divider::after {
 /* het phan chi tiet don hang */
 .cart-page{
   width: 100%;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2667,6 +2669,7 @@ divider::after {
   width: 120px;
   background: aqua;
   border-radius: 10px;
+  width: 150px;
 }
 .product{
   display: flex;
