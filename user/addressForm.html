@@ -30,7 +30,107 @@
   <link href="../css/responsive.css" rel="stylesheet" />
   <!-- Toast message style-->
   <link rel="stylesheet" href=../css/toast-message.css">
-  
+  <style>
+.container.mt-5 {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+.container.mt-5 h2 {
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input.form-control,
+textarea.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+button.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-primary {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+button.btn-primary:hover {
+    background-color: #0af626;
+}
+
+button.btn-secondary {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+button.btn-secondary:hover {
+    background-color: rgb(245, 35, 35);
+}
+
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .container.mt-5 {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button.btn {
+        font-size: 0.9rem;
+    }
+}
+
+  </style>
 </head>
 
 <body>
@@ -154,9 +254,33 @@
     </div>
   </div>
     <!-- end header section -->
-
-
-    
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Thêm Địa Chỉ Mới</h2>
+      <form action="" method="POST">
+          <div class="form-group">
+              <label for="fullname">Họ và tên:</label>
+              <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nhập họ và tên" required>
+          </div>
+          <div class="form-group">
+              <label for="phone">Số điện thoại:</label>
+              <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+          </div>
+          <div class="form-group">
+              <label for="address">Địa chỉ:</label>
+              <textarea class="form-control" id="address" name="address" rows="3" placeholder="Nhập địa chỉ" required></textarea>
+          </div>
+          
+          <!-- Buttons Section -->
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary" onClick="Luu()">
+                <i class="fa fa-check"></i> Hoàn thành
+            </button>
+            <button type="reset" class="btn btn-secondary" onClick="window.location.href='checkout19k.html'">
+                <i class="fa fa-times"></i> Hủy bỏ
+            </button>
+        </div>
+      </form>
+  </div>
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
@@ -252,49 +376,11 @@
    <script src="../js/toast-message.js"></script>
 
    <script>
-        function ctspBs(){
-            window.location.href = "bacxiu.html";
-        }
-        function ctspCfd(){
-            window.location.href = "caphedenda.html"
-        }
-        function ctspCfs(){
-            window.location.href = "caphesuada.html";
-        }
-        function ctspTdcs(){
-            window.location.href = "tradaocamsa.html";
-        }
-        function ctspHts(){
-            window.location.href = "hongtrasuatranchau.html";
-        }
-        function ctspOn(){
-            window.location.href = "trasuaoolongnuong.html"
-        }
-        function ctspTdk(){
-            window.location.href = "tradaokombucha.html";
-        }
-        function ctspTk(){
-            window.location.href = "trakombucha.html";
-        }
-        document.querySelector('.search-btn').addEventListener('click', ()=>{
-            window.location.href = "indexTimKiem.html";
-        });
-        document.getElementById('advanced-search-price-btn').addEventListener('click', ()=>{
-            window.location.href = "indexTimKiem.html";
-        });
-        function remind () {
-            window.location.href = "./cart.html";
-        }
-
-        function confirmDelete()
-        {
-          confirm("Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?");
-          if(confirm)
-          {
-            alert("Xóa sản phẩm thành công !");
-            location.reload();
-          }
-        }
+      function Luu()
+      {
+        alert("Thêm địa chỉ mới thành công !");
+        window.location.href="checkout19k.html";
+      }
    </script>
 </body>
 
