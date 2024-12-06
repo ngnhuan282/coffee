@@ -424,10 +424,10 @@ header {
   background-color: var(--orange);
   height: 30px;
   color: var(--white);
-  width: 75px;
+  width: 130px;
   border-radius: 99px;
   position: relative;
-  right: 80px;
+  right: 135px;
   top: 5px
 }
 
