@@ -171,8 +171,8 @@ button.btn-secondary:hover {
                   <form action="" class="form-search">
                       <span class="search-btn"><i class="fa-light fa-magnifying-glass" onclick="window.location.href='indexTimKiem.html'"></i></span>
                       <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn...">
-                      <button class="filter-btn"></i>
-                      </i><span>Tìm kiếm nâng cao</span></button>
+                      <button class="filter-btn"><i class="fa fa-filter" aria-hidden="true"></i>
+                      </i><span>Lọc</span></button>
                   </form>
               </div>
               <div class="header-middle-right">
@@ -255,40 +255,27 @@ button.btn-secondary:hover {
   </div>
     <!-- end header section -->
     <div class="container mt-5">
-      <h2 class="text-center mb-4">Phân loại , tìm kiếm nâng cao</h2>
+      <h2 class="text-center mb-4">Thêm Địa Chỉ Mới</h2>
       <form action="" method="POST">
           <div class="form-group">
-              <label for="fullname">Nhập tên phân loại muốn tìm: </label>
-              <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Ví dụ: Cà phê" required>
+              <label for="fullname">Họ và tên:</label>
+              <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nhập họ và tên" required>
           </div>
           <div class="form-group">
-              <label for="phone">Nhập giá thành từ: </label>
-              <input type="text" class="form-control" id="phone" name="phone" placeholder="Ví dụ: 50.000đ" required>
+              <label for="phone">Số điện thoại:</label>
+              <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
           </div>
           <div class="form-group">
-            <label for="phone">Nhập giá thành đến: </label>
-            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ví dụ: 100.000đ" required>
-        </div>
-          <div class="form-group">
-            <form id="priceForm">
-                <label>
-                    <input type="radio" name="sortPrice" value="asc">
-                    Giá thành tăng dần
-                </label>
-                <br>
-                <label>
-                    <input type="radio" name="sortPrice" value="desc">
-                    Giá thành giảm dần
-                </label>
-            </form>
+              <label for="address">Địa chỉ:</label>
+              <textarea class="form-control" id="address" name="address" rows="3" placeholder="Nhập địa chỉ" required></textarea>
           </div>
           
           <!-- Buttons Section -->
           <div class="d-flex justify-content-between">
             <button type="submit" class="btn btn-primary" onClick="Luu()">
-                <i class="fa fa-check"></i> Tìm Kiếm
+                <i class="fa fa-check"></i> Hoàn thành
             </button>
-            <button type="reset" class="btn btn-secondary" onClick="window.location.href='indexTK.html'">
+            <button type="reset" class="btn btn-secondary" onClick="window.location.href='checkout19k.html'">
                 <i class="fa fa-times"></i> Hủy bỏ
             </button>
         </div>
@@ -391,7 +378,8 @@ button.btn-secondary:hover {
    <script>
       function Luu()
       {
-        window.location.href="./indexTimKiem.html";
+        alert("Thêm địa chỉ mới thành công !");
+        window.location.href="checkout138k.html";
       }
       function remind () {
             window.location.href = "./cart.html";
@@ -399,10 +387,9 @@ button.btn-secondary:hover {
         document.querySelector('.search-btn').addEventListener('click', ()=>{
             window.location.href = "./indexTimKiem.html";
         });
-        document.querySelector('.filter-btn').addEventListener('click', (e)=>{
-            e.preventDefault();
-            window.location.href = "timkiemnangcao.html"
-        });
+        document.getElementById('advanced-search-price-btn').addEventListener('click', ()=>{
+            window.location.href = "indexTimKiem.html";
+        })
    </script>
 </body>
 
