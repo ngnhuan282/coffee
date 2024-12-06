@@ -72,7 +72,7 @@
                       <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn..."
                           oninput="searchProducts()">
                       <button class="filter-btn"><i class="fa fa-filter" aria-hidden="true"></i>
-                      </i><span>Lọc</span></button>
+                      </i><span>Tìm kiếm nâng cao</span></button>
                   </form>
               </div>
               <div class="header-middle-right">
@@ -742,9 +742,10 @@
         document.querySelector('.search-btn').addEventListener('click', ()=>{
             window.location.href = "./indexTimKiem.html";
         });
-        document.getElementById('advanced-search-price-btn').addEventListener('click', ()=>{
-            window.location.href = "indexTimKiem.html";
-        })
+        document.querySelector('.filter-btn').addEventListener('click', (e)=>{
+            e.preventDefault();
+            window.location.href = "timkiemnangcao.html"
+        });
         function themcart () {
             alert("Bạn đã thêm hàng thành công !");
         }
